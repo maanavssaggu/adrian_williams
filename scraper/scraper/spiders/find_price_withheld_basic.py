@@ -51,10 +51,3 @@ class price_withheld_scraper(scrapy.Spider):
             self.prices.append(self.property_price)
             print(f"Property disappeared at price: {self.property_price}")
             raise CloseSpider(f'Property disappeared. Last seen price: {self.property_price}')
-
-    def close(self, reason):
-        end_time = time.time()  # Log the end time
-        total_time = end_time - self.start_time
-        self.logger.info(f"Total time: {total_time} seconds")
-        if self.prices:
-            print('Min price:', min(self.prices))

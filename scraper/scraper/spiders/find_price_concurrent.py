@@ -38,8 +38,3 @@ class price_withheld_scraper(scrapy.Spider):
         if not first_property or first_property != self.property_present:
             self.disappeared_prices.append(price)
             print(f"Property disappeared at price: {price}")
-
-    def closed(self, reason):
-        if self.disappeared_prices:
-            print(f"Property disappeared first at price: {min(self.disappeared_prices)}")
-

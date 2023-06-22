@@ -1,5 +1,6 @@
 from scrapy import Spider, Request
 import requests
+from scrapy.exceptions import CloseSpider
 import re
 import csv
 from datetime import datetime, timedelta
@@ -17,6 +18,7 @@ class DomainScraperSpider(Spider):
         for suburb in suburb_list:
             page_number = 1  # starts from 1
             domain_dot_com_URL = f"https://www.domain.com.au/sold-listings/{suburb}/?sort=solddate-desc&page={page_number}"
+            print(domain_dot_com_URL)
             yield Request(
                 url=domain_dot_com_URL,
                 callback=self.parse_search_results,
@@ -46,6 +48,11 @@ class DomainScraperSpider(Spider):
             price = property_item.xpath(".//p[@data-testid='listing-card-price']/text()").get()
             sold_status = property_item.xpath('.//div[@data-testid="listing-card-tag"]/span[@class="css-1nj9ymt"]/text()').get()
 
+            property_url = property_item.xpath('.//a/@href').get()
+            #property_id = re.search(r'(\d+)$', property_url).group()
+            # property_url = 0
+            property_id = 0
+
             # gets date of current property 
             current_date = sold_status_to_date(sold_status)
 
@@ -55,26 +62,32 @@ class DomainScraperSpider(Spider):
 
             # get our cutoff date 
             search_to_date = last_monday_date(first_property_sold_date)
+            print(f'this spider only searches up: {search_to_date} \n')
 
-            # Stop searching if we are past last monday 
+
+            # # Stop searching if we are past last monday 
             if (is_before(search_to_date, current_date)):
-                print('stopped here')
-                break
+                print(f'search up until required date for {suburb} \n')
 
+                raise CloseSpider('searched up until required date')
+
+            # Include property_id in data dictionary
             data = {
                 'address_line1': address_line1,
                 'address_line2': ' '.join(address_line2),  # joins the list into a string
                 'price': price,
                 'sold_status_date': sold_status,
+                'property_url': property_url,
+                'property_id': property_id,
             }
 
-            print('Extracted data:', address_line1, address_line2, price, sold_status)
+            #print('Extracted data:', address_line1, address_line2, price, sold_status)
 
             # Write the data to the appropriate file
             suburb_price_included = f'/Users/sickkent/Documents/adrian_williams_software/data/price_included/{suburb}.csv'
             suburb_price_excluded = f'/Users/sickkent/Documents/adrian_williams_software/data/price_excluded/{suburb}_excluded.csv'
 
-            field_names = ['address_line1', 'address_line2', 'price', 'sold_status_date']
+            field_names = ['address_line1', 'address_line2', 'price', 'sold_status_date', 'property_url', 'property_id']
 
             if (price == "Price Withheld"):
                 with open(suburb_price_excluded, 'a', newline='') as exc_price_file:

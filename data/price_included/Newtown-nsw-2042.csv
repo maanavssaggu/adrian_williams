@@ -1,2 +1,15 @@
-address_line1,address_line2,price,sold_status_date
-24/55 King Street,NEWTOWN NSW 2042,"$570,000",Sold by private treaty 14 Jun 2023
+address_line1,address_line2,price,sold_status_date,property_url,property_id
+10 Randle Street,NEWTOWN NSW 2042,"$2,610,000",Sold at auction 17 Jun 2023,https://www.domain.com.au/10-randle-street-newtown-nsw-2042-2018551388,0
+96 Newman Street,NEWTOWN NSW 2042,"$1,910,000",Sold at auction 17 Jun 2023,https://www.domain.com.au/96-newman-street-newtown-nsw-2042-2018551771,0
+149 Darley Street,NEWTOWN NSW 2042,"$2,175,000",Sold at auction 17 Jun 2023,https://www.domain.com.au/149-darley-street-newtown-nsw-2042-2018552250,0
+59 Egan Street,NEWTOWN NSW 2042,"$1,820,000",Sold at auction 17 Jun 2023,https://www.domain.com.au/59-egan-street-newtown-nsw-2042-2018552316,0
+76 Angel Street,NEWTOWN NSW 2042,"$1,450,000",Sold at auction 16 Jun 2023,https://www.domain.com.au/76-angel-street-newtown-nsw-2042-2018560795,0
+7/15 Erskineville Road,NEWTOWN NSW 2042,"$1,200,000",Sold at auction 16 Jun 2023,https://www.domain.com.au/7-15-erskineville-road-newtown-nsw-2042-2018565953,0
+24/55 King Street,NEWTOWN NSW 2042,"$570,000",Sold by private treaty 14 Jun 2023,https://www.domain.com.au/24-55-king-street-newtown-nsw-2042-2018476764,0
+10 Randle Street,NEWTOWN NSW 2042,"$2,610,000",Sold at auction 17 Jun 2023,https://www.domain.com.au/10-randle-street-newtown-nsw-2042-2018551388,0
+96 Newman Street,NEWTOWN NSW 2042,"$1,910,000",Sold at auction 17 Jun 2023,https://www.domain.com.au/96-newman-street-newtown-nsw-2042-2018551771,0
+149 Darley Street,NEWTOWN NSW 2042,"$2,175,000",Sold at auction 17 Jun 2023,https://www.domain.com.au/149-darley-street-newtown-nsw-2042-2018552250,0
+59 Egan Street,NEWTOWN NSW 2042,"$1,820,000",Sold at auction 17 Jun 2023,https://www.domain.com.au/59-egan-street-newtown-nsw-2042-2018552316,0
+76 Angel Street,NEWTOWN NSW 2042,"$1,450,000",Sold at auction 16 Jun 2023,https://www.domain.com.au/76-angel-street-newtown-nsw-2042-2018560795,0
+7/15 Erskineville Road,NEWTOWN NSW 2042,"$1,200,000",Sold at auction 16 Jun 2023,https://www.domain.com.au/7-15-erskineville-road-newtown-nsw-2042-2018565953,0
+24/55 King Street,NEWTOWN NSW 2042,"$570,000",Sold by private treaty 14 Jun 2023,https://www.domain.com.au/24-55-king-street-newtown-nsw-2042-2018476764,0

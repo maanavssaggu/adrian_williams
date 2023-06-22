@@ -1,5 +1,3 @@
-address_line1,address_line2,price,sold_status_date
-24 Waterside Crescent,EARLWOOD NSW 2206,"$1,900,000",Sold by private treaty 09 Jun 2023
-10/3 Bass Road,EARLWOOD NSW 2206,"$1,145,000",Sold at auction 07 Jun 2023
-43 Nelson Road,EARLWOOD NSW 2206,"$2,360,010",Sold prior to auction 07 Jun 2023
-36 Grove Street,EARLWOOD NSW 2206,"$1,300,000",Sold by private treaty 05 Jun 2023
+address_line1,address_line2,price,sold_status_date,property_url,property_id
+4/90-94 Riverview Road,EARLWOOD NSW 2206,"$1,060,000",Sold prior to auction 20 Jun 2023,https://www.domain.com.au/4-90-94-riverview-road-earlwood-nsw-2206-2018562085,0
+4/90-94 Riverview Road,EARLWOOD NSW 2206,"$1,060,000",Sold prior to auction 20 Jun 2023,https://www.domain.com.au/4-90-94-riverview-road-earlwood-nsw-2206-2018562085,0

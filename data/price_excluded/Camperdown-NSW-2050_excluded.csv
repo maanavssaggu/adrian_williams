@@ -1,2 +1,4 @@
-address_line1,address_line2,price,sold_status_date
-33/176-180 Salisbury Road,CAMPERDOWN NSW 2050,Price Withheld,Sold prior to auction 14 Jun 2023
+address_line1,address_line2,price,sold_status_date,property_url,property_id
+address_line1,address_line2,price,sold_status_date,property_url,property_id
+G04/1-3 Larkin Street,CAMPERDOWN NSW 2050,1829000,Sold by private treaty 15 Jun 2023,https://www.domain.com.au/g04-1-3-larkin-street-camperdown-nsw-2050-2018591664,0
+33/176-180 Salisbury Road,CAMPERDOWN NSW 2050,Price Withheld,Sold prior to auction 14 Jun 2023,https://www.domain.com.au/33-176-180-salisbury-road-camperdown-nsw-2050-2018562361,0
