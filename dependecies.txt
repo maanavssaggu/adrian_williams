@@ -1,6 +1,0 @@
-scrapy 
-time
-csv
-requests
-datetime
-scrapeops-scrapy-proxy-sdk
