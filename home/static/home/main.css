@@ -1,0 +1,43 @@
+* {
+    background-color: #101820;
+    color: aliceblue;
+}
+
+
+h1 {
+    /* Just as an example of how css can be added to templates */
+    padding-left: 50px;
+    padding-top: 20px;
+    font-family: "maison-neue";
+    font-weight: 100;
+    font-size: 40px;
+}
+
+.search-bar {
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 500px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+
+button {
+    background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
