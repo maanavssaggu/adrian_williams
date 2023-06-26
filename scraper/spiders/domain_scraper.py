@@ -84,8 +84,9 @@ class DomainScraperSpider(Spider):
             #print('Extracted data:', address_line1, address_line2, price, sold_status)
 
             # Write the data to the appropriate file
-            suburb_price_included = f'/Users/sickkent/Documents/adrian_williams_software/data/price_included/{suburb}.csv'
-            suburb_price_excluded = f'/Users/sickkent/Documents/adrian_williams_software/data/price_excluded/{suburb}_excluded.csv'
+            # suburb_price_included = f'{suburb}.csv'
+            suburb_price_included = f'../../data/price_included/{suburb}_included.csv'
+            suburb_price_excluded = f'../../data/price_excluded/{suburb}_excluded.csv'
 
             field_names = ['address_line1', 'address_line2', 'price', 'sold_status_date', 'property_url', 'property_id']
 
