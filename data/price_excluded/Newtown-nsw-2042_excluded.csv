@@ -1,6 +1,4 @@
 address_line1,address_line2,price,sold_status_date,property_url,property_id
-address_line1,address_line2,price,sold_status_date,property_url,property_id
 3/1 Gladstone Street,NEWTOWN NSW 2042,1674000,Sold at auction 24 Jun 2023,https://www.domain.com.au/3-1-gladstone-street-newtown-nsw-2042-2018572086,0
-161 Lord Street,NEWTOWN NSW 2042,Price Withheld,Sold by private treaty 22 Jun 2023,https://www.domain.com.au/161-lord-street-newtown-nsw-2042-2018148279,0
-26a Wells Street,NEWTOWN NSW 2042,Price Withheld,Sold by private treaty 20 Jun 2023,https://www.domain.com.au/26a-wells-street-newtown-nsw-2042-2018606227,0
-161+Lord+Street,NEWTOWN-NSW-2042,1635546,Unknown,Unknown,Unknown
+161 Lord Street,NEWTOWN NSW 2042,1674000,Sold by private treaty 22 Jun 2023,https://www.domain.com.au/161-lord-street-newtown-nsw-2042-2018148279,0
+26a Wells Street,NEWTOWN NSW 2042,1906000,Sold by private treaty 20 Jun 2023,https://www.domain.com.au/26a-wells-street-newtown-nsw-2042-2018606227,0

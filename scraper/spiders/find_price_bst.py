@@ -50,34 +50,43 @@ class price_withheld_scraper(scrapy.Spider):
             script_dir = os.path.dirname(__file__)
             abs_file_path = os.path.join(script_dir, exc_property_folder_path, self.file_name)
 
-            print('trying to chuck it into, -------------: ', abs_file_path)
+            #print('trying to chuck it into, -------------: ', abs_file_path)
 
             if not first_property or first_property != self.property_present:
                 if price - self.min_price <= int(5e4): # mid_price - minimum <= 50000 
-                    print(f"Property disappeared at price: {price}") # within our acceptance range 
-                else: # means the property disappeared 
+                    print(f"price is: {price}") # within our acceptance range 
+                    field_names = ['address_line1', 'address_line2', 'price', 'sold_status_date', 'property_url', 'property_id']
+                    write_to_csv(field_names, abs_file_path, self.row_index, self.max_price, self.address_line_1, self.address_line_2)
+                    # try:
+                    #     with open(abs_file_path, 'r') as file:
+                    #         reader = csv.DictReader(file)
+                    #         data = list(reader)
+
+                    #     # change price witheld to actual price
+                    #     print(f'I am going to add the actual price to row \n {self.row_index} in {abs_file_path} \n for {self.address_line_1} {self.address_line_2}')
+                    #     data[self.row_index]['price'] = round_to_nearest_thousand(self.max_price)
+
+                    #     # add the changed data back into the csv 
+                    #     with open(abs_file_path, 'w', newline='') as output_file:
+                    #         writer = csv.DictWriter(output_file, fieldnames=field_names)
+                    #         if is_file_empty(abs_file_path):
+                    #             writer.writeheader()
+                    #         writer.writerows(data)
+                    # except FileNotFoundError:
+                    #     print(f"File {abs_file_path} not found.")
+
+                else: # means the property disappeared -> narrow down the search space so its within acceptance range 
                     self.max_price = price # now set the mid price to be the max price 
                     mid_price = (self.max_price + self.min_price) // 2 # new mid = halfway between 
                     url = self.URL(self.address_line_1, self.address_line_2, mid_price) # search through that 
-                    yield scrapy.Request(url, callback=self.parse, meta={'price': mid_price})
-            else:
+                    yield scrapy.Request(url, callback=self.parse, meta={'price': mid_price}) # crawl to see if its still there 
+            else: # property didnt disapear so narrow down the search space 
                 if self.max_price - price <= int(5e4):
                     if os.path.isdir(os.path.join(script_dir, exc_property_folder_path)): 
                         field_names = ['address_line1', 'address_line2', 'price', 'sold_status_date', 'property_url', 'property_id']
 
-                        try:
-                            with open(abs_file_path, 'r') as file:
-                                reader = csv.DictReader(file, fieldnames=field_names)
-                                if any(item['address_line1'] == self.address_line_1 and 
-                                       item['address_line2'] == self.address_line_2 and 
-                                       item['price'] == str(price) for item in reader):
-                                    print('Skipping - already in list.')
-                                else:
-                                    with open(abs_file_path, 'a') as file:
-                                        writer = csv.writer(file)
-                                        writer.writerow([self.address_line_1, self.address_line_2, price, 'Unknown', 'Unknown', 'Unknown'])
-                        except FileNotFoundError as e:
-                            print(f"Couldn't find the file. Error: {e}")
+                        write_to_csv(field_names, abs_file_path, self.row_index, self.max_price, self.address_line_1, self.address_line_2)
+
 
                 else:
                     self.min_price = price
@@ -88,7 +97,31 @@ class price_withheld_scraper(scrapy.Spider):
         except:
             raise CloseSpider('Connection lost, will retry')
 
+def write_to_csv(field_names, abs_file_path, data_index_row, price, ad1, ad2):
+    field_names = ['address_line1', 'address_line2', 'price', 'sold_status_date', 'property_url', 'property_id']
 
+    try:
+        with open(abs_file_path, 'r') as file:
+            reader = csv.DictReader(file)
+            data = list(reader)
+
+        # change price witheld to actual price
+        print(f'I am going to add the actual price to row \n {data_index_row} in {abs_file_path} \n for {ad1} {ad2}')
+        data[data_index_row]['price'] = round_to_nearest_thousand(price)
+
+        # add the changed data back into the csv 
+        with open(abs_file_path, 'w', newline='') as output_file:
+            writer = csv.DictWriter(output_file, fieldnames=field_names)
+            if is_file_empty(abs_file_path):
+                writer.writeheader()
+            writer.writerows(data)
+    except FileNotFoundError:
+        print(f"File {abs_file_path} not found.")
 
 def round_to_nearest_thousand(num):
     return round(num, -3) if num >= 1000 else num
+
+def is_file_empty(file_path):
+    """Check if file is empty by confirming if its size is 0 bytes"""
+    # Check if file exist and it is empty
+    return os.path.exists(file_path) and os.path.getsize(file_path) == 0
