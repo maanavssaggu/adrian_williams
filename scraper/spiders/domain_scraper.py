@@ -5,6 +5,7 @@ import re
 import csv
 from datetime import datetime, timedelta
 import time 
+import os 
 # from utils import last_monday_date, sold_status_to_date
 
 
@@ -13,8 +14,13 @@ class DomainScraperSpider(Spider):
     allowed_domains = ["domain.com.au"]
     start_urls = ["https://domain.com.au"]
 
+    def __init__(self, suburb_list = None, time_period = None, name=None, **kwargs):
+        self.suburb_list = suburb_list
+        self.time_period = time_period
+        super().__init__(name, **kwargs)
+
     def start_requests(self):
-        suburb_list = ['earlwood-nsw-2206', 'Newtown-nsw-2042', 'Camperdown-NSW-2050']
+        suburb_list = self.suburb_list
         for suburb in suburb_list:
             page_number = 1  # starts from 1
             domain_dot_com_URL = f"https://www.domain.com.au/sold-listings/{suburb}/?sort=solddate-desc&page={page_number}"
@@ -81,12 +87,18 @@ class DomainScraperSpider(Spider):
                 'property_id': property_id,
             }
 
-            #print('Extracted data:', address_line1, address_line2, price, sold_status)
+            # This will get the absolute path to the directory where your script file is located
+            current_script_dir = os.path.dirname(os.path.abspath(__file__))
 
-            # Write the data to the appropriate file
-            # suburb_price_included = f'{suburb}.csv'
-            suburb_price_included = f'../../data/price_included/{suburb}_included.csv'
-            suburb_price_excluded = f'../../data/price_excluded/{suburb}_excluded.csv'
+            included_dir = os.path.join(current_script_dir, '../../data/price_included')
+            excluded_dir = os.path.join(current_script_dir, '../../data/price_excluded')
+
+            # Ensuring paths are absolute
+            included_dir = os.path.abspath(included_dir)
+            excluded_dir = os.path.abspath(excluded_dir)
+
+            suburb_price_included = os.path.join(included_dir, f'{suburb}_included.csv')
+            suburb_price_excluded = os.path.join(excluded_dir, f'{suburb}_excluded.csv')
 
             field_names = ['address_line1', 'address_line2', 'price', 'sold_status_date', 'property_url', 'property_id']
 
