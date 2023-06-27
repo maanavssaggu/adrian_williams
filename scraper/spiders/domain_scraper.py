@@ -8,9 +8,7 @@ import time
 import os 
 import firebase_admin
 from firebase_admin import db
-
 from firebase_admin import credentials
-
 from firebase_admin import initialize_app
 
 class DomainScraperSpider(Spider):
@@ -22,10 +20,12 @@ class DomainScraperSpider(Spider):
         self.suburb_list = suburb_list
         self.time_period = time_period
 
+        # get paths to initilise firebase
         relative_path = "../../credentials/aw-wsr-firebase-adminsdk-458m1-b68fb8fd1d.json"
         base_dir = os.path.dirname(os.path.abspath(__file__))
         absolute_path = os.path.join(base_dir, relative_path)
         print(f'rel_path: {relative_path} \n base_dir: {base_dir} \n absolute_path: {absolute_path}')
+        
         # initilise firebase
         cred = credentials.Certificate(absolute_path)
         firebase_admin.initialize_app(cred, {

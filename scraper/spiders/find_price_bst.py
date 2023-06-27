@@ -3,12 +3,17 @@ import scrapy
 from scrapy.exceptions import CloseSpider
 import time 
 import csv 
+import firebase_admin
+from firebase_admin import db
+from firebase_admin import credentials
+
+
 
 class price_withheld_scraper(scrapy.Spider):
     name = "price_finder_bst"
 
     def __init__(self, address_line_1=None, address_line_2=None, property=None, 
-                            file_path_given=None, file_name = None, ame=None, row_index =None, **kwargs):
+                            file_path_given=None, file_name = None, property_id = None, ame=None, row_index =None, **kwargs):
         self.address_line_1 = address_line_1
         self.address_line_2 = address_line_2
         self.property = property
@@ -19,7 +24,22 @@ class price_withheld_scraper(scrapy.Spider):
         self.file_path_given = file_path_given
         self.row_index = row_index
         self.file_name = file_name
+        self.property_id = property_id
         super().__init__(name=None, **kwargs)
+
+        # get paths to initilise firebase
+        relative_path = "../../credentials/aw-wsr-firebase-adminsdk-458m1-b68fb8fd1d.json"
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        absolute_path = os.path.join(base_dir, relative_path)
+        print(f'rel_path: {relative_path} \n base_dir: {base_dir} \n absolute_path: {absolute_path}')
+
+        # initilise firebase
+        cred = credentials.Certificate(absolute_path)
+        if not firebase_admin._apps:
+            firebase_admin.initialize_app(cred, {
+                "databaseURL": "https://aw-wsr-default-rtdb.firebaseio.com/"
+            })
+
 
     def start_requests(self):
         self.start_time = time.time()  # Log the start time
@@ -56,6 +76,12 @@ class price_withheld_scraper(scrapy.Spider):
                 if price - self.min_price <= int(5e4): # mid_price - minimum <= 50000 
                     print(f"price is: {price}") # within our acceptance range 
                     field_names = ['address_line1', 'address_line2', 'price', 'sold_status_date', 'property_url', 'property_id']
+                    
+                    # add to fire base
+                    property_ref = db.reference(f'Propertys/{self.property_id}')
+                    prop_price = round_to_nearest_thousand(self.max_price)
+                    property_ref.update({'price': prop_price})
+
                     write_to_csv(field_names, abs_file_path, self.row_index, self.max_price, self.address_line_1, self.address_line_2)
                     # try:
                     #     with open(abs_file_path, 'r') as file:
@@ -84,6 +110,11 @@ class price_withheld_scraper(scrapy.Spider):
                 if self.max_price - price <= int(5e4):
                     if os.path.isdir(os.path.join(script_dir, exc_property_folder_path)): 
                         field_names = ['address_line1', 'address_line2', 'price', 'sold_status_date', 'property_url', 'property_id']
+
+                        # add to fire base
+                        property_ref = db.reference(f'Propertys/{self.property_id}')
+                        prop_price = round_to_nearest_thousand(self.max_price)
+                        property_ref.update({'price': prop_price})
 
                         write_to_csv(field_names, abs_file_path, self.row_index, self.max_price, self.address_line_1, self.address_line_2)
 
