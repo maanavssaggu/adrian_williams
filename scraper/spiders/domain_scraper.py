@@ -6,8 +6,12 @@ import csv
 from datetime import datetime, timedelta
 import time 
 import os 
-# from utils import last_monday_date, sold_status_to_date
+import firebase_admin
+from firebase_admin import db
 
+from firebase_admin import credentials
+
+from firebase_admin import initialize_app
 
 class DomainScraperSpider(Spider):
     name = "domain_scraper"
@@ -17,6 +21,17 @@ class DomainScraperSpider(Spider):
     def __init__(self, suburb_list = None, time_period = None, name=None, **kwargs):
         self.suburb_list = suburb_list
         self.time_period = time_period
+
+        relative_path = "../../credentials/aw-wsr-firebase-adminsdk-458m1-b68fb8fd1d.json"
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        absolute_path = os.path.join(base_dir, relative_path)
+        print(f'rel_path: {relative_path} \n base_dir: {base_dir} \n absolute_path: {absolute_path}')
+        # initilise firebase
+        cred = credentials.Certificate(absolute_path)
+        firebase_admin.initialize_app(cred, {
+            "databaseURL": "https://aw-wsr-default-rtdb.firebaseio.com/"
+        })
+
         super().__init__(name, **kwargs)
 
     def start_requests(self):
@@ -55,9 +70,9 @@ class DomainScraperSpider(Spider):
             sold_status = property_item.xpath('.//div[@data-testid="listing-card-tag"]/span[@class="css-1nj9ymt"]/text()').get()
 
             property_url = property_item.xpath('.//a/@href').get()
-            #property_id = re.search(r'(\d+)$', property_url).group()
+            property_id = re.search(r'(\d+)$', property_url).group()
             # property_url = 0
-            property_id = 0
+            
 
             # gets date of current property 
             current_date = sold_status_to_date(sold_status)
@@ -86,6 +101,10 @@ class DomainScraperSpider(Spider):
                 'property_url': property_url,
                 'property_id': property_id,
             }
+
+            property_id = str(data['property_id'])
+            ref = db.reference("Propertys")
+            ref.child(data['property_id']).set(data)
 
             # This will get the absolute path to the directory where your script file is located
             current_script_dir = os.path.dirname(os.path.abspath(__file__))
