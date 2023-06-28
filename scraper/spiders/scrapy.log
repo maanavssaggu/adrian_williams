@@ -3684,3 +3684,127 @@ TypeError: 'NoneType' object is not iterable
  'memusage/startup': 58183680,
  'start_time': datetime.datetime(2023, 6, 27, 6, 2, 25, 650024)}
 2023-06-27 16:02:25 [scrapy.core.engine] INFO: Spider closed (finished)
+2023-06-28 20:17:46 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-28 20:17:46 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.10.11 (main, Apr 20 2023, 13:59:00) [Clang 14.0.6 ], pyOpenSSL 23.0.0 (OpenSSL 1.1.1t  7 Feb 2023), cryptography 39.0.1, Platform macOS-10.16-x86_64-i386-64bit
+2023-06-28 20:17:46 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-06-28 20:17:46 [asyncio] DEBUG: Using selector: KqueueSelector
+2023-06-28 20:17:46 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-06-28 20:17:46 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2023-06-28 20:17:46 [scrapy.extensions.telnet] INFO: Telnet Password: 0fa5617af59a49c4
+2023-06-28 20:17:46 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2023-06-28 20:17:46 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-06-28 20:17:46 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-06-28 20:17:46 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-06-28 20:17:46 [scrapy.core.engine] INFO: Spider opened
+2023-06-28 20:17:46 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-06-28 20:17:46 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-06-28 20:17:46 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/Users/sickkent/opt/anaconda3/envs/Adrian_Williams/lib/python3.10/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+  File "/Users/sickkent/Documents/adrian_williams_software/scraper/spiders/domain_scraper.py", line 39, in start_requests
+    for suburb in suburb_list:
+TypeError: 'NoneType' object is not iterable
+2023-06-28 20:17:46 [scrapy.core.engine] INFO: Closing spider (finished)
+2023-06-28 20:17:46 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.002112,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2023, 6, 28, 10, 17, 46, 679662),
+ 'log_count/DEBUG': 3,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 10,
+ 'memusage/max': 60071936,
+ 'memusage/startup': 60071936,
+ 'start_time': datetime.datetime(2023, 6, 28, 10, 17, 46, 677550)}
+2023-06-28 20:17:46 [scrapy.core.engine] INFO: Spider closed (finished)
+2023-06-28 20:20:29 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-28 20:20:29 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.10.11 (main, Apr 20 2023, 13:59:00) [Clang 14.0.6 ], pyOpenSSL 23.0.0 (OpenSSL 1.1.1t  7 Feb 2023), cryptography 39.0.1, Platform macOS-10.16-x86_64-i386-64bit
+2023-06-28 20:20:29 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-06-28 20:20:29 [asyncio] DEBUG: Using selector: KqueueSelector
+2023-06-28 20:20:29 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-06-28 20:20:29 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2023-06-28 20:20:29 [scrapy.extensions.telnet] INFO: Telnet Password: c6d26cb3124ccc33
+2023-06-28 20:20:29 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2023-06-28 20:20:29 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-06-28 20:20:29 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-06-28 20:20:29 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-06-28 20:20:29 [scrapy.core.engine] INFO: Spider opened
+2023-06-28 20:20:29 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-06-28 20:20:29 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-06-28 20:20:29 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/Users/sickkent/opt/anaconda3/envs/Adrian_Williams/lib/python3.10/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+  File "/Users/sickkent/Documents/adrian_williams_software/scraper/spiders/domain_scraper.py", line 39, in start_requests
+    for suburb in suburb_list:
+TypeError: 'NoneType' object is not iterable
+2023-06-28 20:20:29 [scrapy.core.engine] INFO: Closing spider (finished)
+2023-06-28 20:20:29 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.002182,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2023, 6, 28, 10, 20, 29, 347485),
+ 'log_count/DEBUG': 3,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 10,
+ 'memusage/max': 60006400,
+ 'memusage/startup': 60006400,
+ 'start_time': datetime.datetime(2023, 6, 28, 10, 20, 29, 345303)}
+2023-06-28 20:20:29 [scrapy.core.engine] INFO: Spider closed (finished)

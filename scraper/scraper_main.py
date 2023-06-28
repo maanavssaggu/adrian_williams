@@ -1,3 +1,4 @@
+from gc import callbacks
 from re import sub
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
@@ -67,11 +68,27 @@ def find_prices_of_price_witheld():
     process.start()
 
 
+# def test_run(second_funct):
+
+
 # TODO 
 # add function to find property price of a specific property and add to the csv 
-#suburb_list = ['earlwood-nsw-2206', 'Newtown-nsw-2042', 'Camperdown-NSW-2050']
-#get_property_data(suburb_list)
-find_prices_of_price_witheld()
+
+# find_prices_of_price_witheld()
+
+def test_func(suburb_list=None, time_period=None, second_func=None):
+    """
+    example of how to run this:
+        suburb_list = ['earlwood-nsw-2206', 'Newtown-nsw-2042', 'Camperdown-NSW-2050']
+        get_property_data(suburb_list)
+    """
+
+    process = CrawlerProcess(get_project_settings())
+    process.crawl(DomainScraperSpider,
+                suburb_list = suburb_list,
+                time_period = time_period)
+    second_func()
 
 
-
+suburb_list = ['earlwood-nsw-2206', 'Newtown-nsw-2042', 'Camperdown-NSW-2050']
+test_func(suburb_list, second_func = find_prices_of_price_witheld)
