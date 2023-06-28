@@ -1,0 +1,234 @@
+2023-06-28 20:21:41 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-28 20:21:41 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.10.11 (main, Apr 20 2023, 13:59:00) [Clang 14.0.6 ], pyOpenSSL 23.0.0 (OpenSSL 1.1.1t  7 Feb 2023), cryptography 39.0.1, Platform macOS-10.16-x86_64-i386-64bit
+2023-06-28 20:21:41 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-06-28 20:21:41 [asyncio] DEBUG: Using selector: KqueueSelector
+2023-06-28 20:21:41 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-06-28 20:21:41 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2023-06-28 20:21:41 [scrapy.extensions.telnet] INFO: Telnet Password: 19af01f4cf7f7051
+2023-06-28 20:21:41 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2023-06-28 20:21:41 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-06-28 20:21:41 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-06-28 20:21:41 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-06-28 20:21:41 [scrapy.core.engine] INFO: Spider opened
+2023-06-28 20:21:41 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-06-28 20:21:42 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-06-28 20:21:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FNewtown-nsw-2042%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-06-28 20:21:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCamperdown-NSW-2050%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-06-28 20:21:46 [urllib3.util.retry] DEBUG: Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2023-06-28 20:21:46 [google.auth.transport.requests] DEBUG: Making request: POST https://oauth2.googleapis.com/token
+2023-06-28 20:21:46 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2023-06-28 20:21:46 [urllib3.connectionpool] DEBUG: https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2023-06-28 20:21:46 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): aw-wsr-default-rtdb.firebaseio.com:443
+2023-06-28 20:21:47 [urllib3.connectionpool] DEBUG: https://aw-wsr-default-rtdb.firebaseio.com:443 "PUT /Propertys/2018573457.json?print=silent HTTP/1.1" 204 0
+2023-06-28 20:21:47 [scrapy.core.engine] INFO: Closing spider (searched up until required date)
+2023-06-28 20:21:47 [urllib3.connectionpool] DEBUG: https://aw-wsr-default-rtdb.firebaseio.com:443 "PUT /Propertys/2018605090.json?print=silent HTTP/1.1" 204 0
+2023-06-28 20:21:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2Fearlwood-nsw-2206%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-06-28 20:21:48 [urllib3.connectionpool] DEBUG: https://aw-wsr-default-rtdb.firebaseio.com:443 "PUT /Propertys/2018576008.json?print=silent HTTP/1.1" 204 0
+2023-06-28 20:21:49 [urllib3.connectionpool] DEBUG: https://aw-wsr-default-rtdb.firebaseio.com:443 "PUT /Propertys/2018576463.json?print=silent HTTP/1.1" 204 0
+2023-06-28 20:21:49 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 1138,
+ 'downloader/request_count': 3,
+ 'downloader/request_method_count/GET': 3,
+ 'downloader/response_bytes': 352680,
+ 'downloader/response_count': 3,
+ 'downloader/response_status_count/200': 3,
+ 'elapsed_time_seconds': 7.020708,
+ 'finish_reason': 'searched up until required date',
+ 'finish_time': datetime.datetime(2023, 6, 28, 10, 21, 49, 20450),
+ 'httpcompression/response_bytes': 1968265,
+ 'httpcompression/response_count': 3,
+ 'log_count/DEBUG': 15,
+ 'log_count/INFO': 10,
+ 'memusage/max': 57274368,
+ 'memusage/startup': 57274368,
+ 'response_received_count': 3,
+ 'scheduler/dequeued': 6,
+ 'scheduler/dequeued/memory': 6,
+ 'scheduler/enqueued': 6,
+ 'scheduler/enqueued/memory': 6,
+ 'start_time': datetime.datetime(2023, 6, 28, 10, 21, 41, 999742)}
+2023-06-28 20:21:49 [scrapy.core.engine] INFO: Spider closed (searched up until required date)
+2023-06-28 20:33:54 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-28 20:33:54 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.10.11 (main, Apr 20 2023, 13:59:00) [Clang 14.0.6 ], pyOpenSSL 23.0.0 (OpenSSL 1.1.1t  7 Feb 2023), cryptography 39.0.1, Platform macOS-10.16-x86_64-i386-64bit
+2023-06-28 20:33:54 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-06-28 20:33:54 [asyncio] DEBUG: Using selector: KqueueSelector
+2023-06-28 20:33:54 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-06-28 20:33:54 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2023-06-28 20:33:54 [scrapy.extensions.telnet] INFO: Telnet Password: 2065768a6f8a606d
+2023-06-28 20:33:54 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2023-06-28 20:33:54 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-06-28 20:33:54 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-06-28 20:33:54 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-06-28 20:33:54 [scrapy.core.engine] INFO: Spider opened
+2023-06-28 20:33:54 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-06-28 20:33:54 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-06-28 20:33:54 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-28 20:33:54 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.10.11 (main, Apr 20 2023, 13:59:00) [Clang 14.0.6 ], pyOpenSSL 23.0.0 (OpenSSL 1.1.1t  7 Feb 2023), cryptography 39.0.1, Platform macOS-10.16-x86_64-i386-64bit
+2023-06-28 20:33:54 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-06-28 20:33:54 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-06-28 20:33:54 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2023-06-28 20:33:54 [scrapy.extensions.telnet] INFO: Telnet Password: c38cdbf23388d656
+2023-06-28 20:33:54 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2023-06-28 20:33:54 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-06-28 20:33:54 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-06-28 20:33:54 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-06-28 20:33:54 [scrapy.core.engine] INFO: Spider opened
+2023-06-28 20:33:54 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-06-28 20:33:54 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6024
+2023-06-28 20:33:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCAMPERDOWN-NSW-2050%2F%3Fprice%3D50000-any%26sort%3Ddateupdated-desc%26street%3D18%2F6-8%2BNorthwood%2BStreet> (referer: None)
+2023-06-28 20:33:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2Fearlwood-nsw-2206%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-06-28 20:33:58 [urllib3.util.retry] DEBUG: Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2023-06-28 20:33:58 [google.auth.transport.requests] DEBUG: Making request: POST https://oauth2.googleapis.com/token
+2023-06-28 20:33:58 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2023-06-28 20:33:58 [urllib3.connectionpool] DEBUG: https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2023-06-28 20:33:58 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): aw-wsr-default-rtdb.firebaseio.com:443
+2023-06-28 20:33:59 [urllib3.connectionpool] DEBUG: https://aw-wsr-default-rtdb.firebaseio.com:443 "PUT /Propertys/2018576008.json?print=silent HTTP/1.1" 204 0
+2023-06-28 20:33:59 [urllib3.connectionpool] DEBUG: https://aw-wsr-default-rtdb.firebaseio.com:443 "PUT /Propertys/2018576463.json?print=silent HTTP/1.1" 204 0
+2023-06-28 20:33:59 [scrapy.core.engine] INFO: Closing spider (searched up until required date)
+2023-06-28 20:34:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCamperdown-NSW-2050%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-06-28 20:34:01 [urllib3.connectionpool] DEBUG: https://aw-wsr-default-rtdb.firebaseio.com:443 "PUT /Propertys/2018605090.json?print=silent HTTP/1.1" 204 0
+2023-06-28 20:34:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCAMPERDOWN-NSW-2050%2F%3Fprice%3D2525000-any%26sort%3Ddateupdated-desc%26street%3D18%2F6-8%2BNorthwood%2BStreet> (referer: https://www.domain.com.au/sold-listings/CAMPERDOWN-NSW-2050/?price=50000-any&sort=dateupdated-desc&street=18/6-8+Northwood+Street)
+2023-06-28 20:34:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCAMPERDOWN-NSW-2050%2F%3Fprice%3D1287500-any%26sort%3Ddateupdated-desc%26street%3D18%2F6-8%2BNorthwood%2BStreet> (referer: https://www.domain.com.au/sold-listings/CAMPERDOWN-NSW-2050/?price=2525000-any&sort=dateupdated-desc&street=18/6-8+Northwood+Street)
+2023-06-28 20:34:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FNewtown-nsw-2042%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-06-28 20:34:08 [urllib3.connectionpool] DEBUG: https://aw-wsr-default-rtdb.firebaseio.com:443 "PUT /Propertys/2018573457.json?print=silent HTTP/1.1" 204 0
+2023-06-28 20:34:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCAMPERDOWN-NSW-2050%2F%3Fprice%3D1906250-any%26sort%3Ddateupdated-desc%26street%3D18%2F6-8%2BNorthwood%2BStreet> (referer: https://www.domain.com.au/sold-listings/CAMPERDOWN-NSW-2050/?price=1287500-any&sort=dateupdated-desc&street=18/6-8+Northwood+Street)
+2023-06-28 20:34:08 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 1138,
+ 'downloader/request_count': 3,
+ 'downloader/request_method_count/GET': 3,
+ 'downloader/response_bytes': 353280,
+ 'downloader/response_count': 3,
+ 'downloader/response_status_count/200': 3,
+ 'elapsed_time_seconds': 14.671786,
+ 'finish_reason': 'searched up until required date',
+ 'finish_time': datetime.datetime(2023, 6, 28, 10, 34, 8, 865194),
+ 'httpcompression/response_bytes': 1969281,
+ 'httpcompression/response_count': 3,
+ 'log_count/DEBUG': 21,
+ 'log_count/INFO': 21,
+ 'memusage/max': 57372672,
+ 'memusage/startup': 57372672,
+ 'response_received_count': 3,
+ 'scheduler/dequeued': 6,
+ 'scheduler/dequeued/memory': 6,
+ 'scheduler/enqueued': 6,
+ 'scheduler/enqueued/memory': 6,
+ 'start_time': datetime.datetime(2023, 6, 28, 10, 33, 54, 193408)}
+2023-06-28 20:34:08 [scrapy.core.engine] INFO: Spider closed (searched up until required date)
+2023-06-28 20:34:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCAMPERDOWN-NSW-2050%2F%3Fprice%3D1596875-any%26sort%3Ddateupdated-desc%26street%3D18%2F6-8%2BNorthwood%2BStreet> (referer: https://www.domain.com.au/sold-listings/CAMPERDOWN-NSW-2050/?price=1906250-any&sort=dateupdated-desc&street=18/6-8+Northwood+Street)
+2023-06-28 20:34:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCAMPERDOWN-NSW-2050%2F%3Fprice%3D1442187-any%26sort%3Ddateupdated-desc%26street%3D18%2F6-8%2BNorthwood%2BStreet> (referer: https://www.domain.com.au/sold-listings/CAMPERDOWN-NSW-2050/?price=1596875-any&sort=dateupdated-desc&street=18/6-8+Northwood+Street)
+2023-06-28 20:34:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCAMPERDOWN-NSW-2050%2F%3Fprice%3D1364843-any%26sort%3Ddateupdated-desc%26street%3D18%2F6-8%2BNorthwood%2BStreet> (referer: https://www.domain.com.au/sold-listings/CAMPERDOWN-NSW-2050/?price=1442187-any&sort=dateupdated-desc&street=18/6-8+Northwood+Street)
+2023-06-28 20:34:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCAMPERDOWN-NSW-2050%2F%3Fprice%3D1326171-any%26sort%3Ddateupdated-desc%26street%3D18%2F6-8%2BNorthwood%2BStreet> (referer: https://www.domain.com.au/sold-listings/CAMPERDOWN-NSW-2050/?price=1364843-any&sort=dateupdated-desc&street=18/6-8+Northwood+Street)
+2023-06-28 20:34:31 [urllib3.connectionpool] DEBUG: https://aw-wsr-default-rtdb.firebaseio.com:443 "PATCH /Propertys/2018605090.json?print=silent HTTP/1.1" 204 0
+2023-06-28 20:34:31 [scrapy.core.engine] INFO: Closing spider (finished)
+2023-06-28 20:34:31 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 4478,
+ 'downloader/request_count': 8,
+ 'downloader/request_method_count/GET': 8,
+ 'downloader/response_bytes': 379167,
+ 'downloader/response_count': 8,
+ 'downloader/response_status_count/200': 8,
+ 'elapsed_time_seconds': 36.863782,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2023, 6, 28, 10, 34, 31, 70774),
+ 'httpcompression/response_bytes': 1442425,
+ 'httpcompression/response_count': 8,
+ 'log_count/DEBUG': 23,
+ 'log_count/INFO': 13,
+ 'memusage/max': 57741312,
+ 'memusage/startup': 57741312,
+ 'request_depth_max': 7,
+ 'response_received_count': 8,
+ 'scheduler/dequeued': 16,
+ 'scheduler/dequeued/memory': 16,
+ 'scheduler/enqueued': 16,
+ 'scheduler/enqueued/memory': 16,
+ 'start_time': datetime.datetime(2023, 6, 28, 10, 33, 54, 206992)}
+2023-06-28 20:34:31 [scrapy.core.engine] INFO: Spider closed (finished)
