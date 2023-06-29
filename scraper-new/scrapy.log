@@ -1,0 +1,220 @@
+2023-06-29 16:03:40 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-29 16:03:40 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)], pyOpenSSL 23.2.0 (OpenSSL 3.0.8 7 Feb 2023), cryptography 39.0.1, Platform Windows-10-10.0.19045-SP0
+2023-06-29 16:03:40 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-06-29 16:03:40 [asyncio] DEBUG: Using selector: SelectSelector
+2023-06-29 16:03:40 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-06-29 16:03:40 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.windows_events._WindowsSelectorEventLoop
+2023-06-29 16:03:40 [scrapy.extensions.telnet] INFO: Telnet Password: 6851b9ed6f4221fc
+2023-06-29 16:03:40 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2023-06-29 16:03:41 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-06-29 16:03:41 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-06-29 16:03:41 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-06-29 16:03:41 [scrapy.core.engine] INFO: Spider opened
+2023-06-29 16:03:41 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-06-29 16:03:41 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-06-29 16:03:41 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-29 16:03:41 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)], pyOpenSSL 23.2.0 (OpenSSL 3.0.8 7 Feb 2023), cryptography 39.0.1, Platform Windows-10-10.0.19045-SP0
+2023-06-29 16:03:57 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-29 16:03:57 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)], pyOpenSSL 23.2.0 (OpenSSL 3.0.8 7 Feb 2023), cryptography 39.0.1, Platform Windows-10-10.0.19045-SP0
+2023-06-29 16:03:57 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-06-29 16:03:57 [asyncio] DEBUG: Using selector: SelectSelector
+2023-06-29 16:03:57 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-06-29 16:03:57 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.windows_events._WindowsSelectorEventLoop
+2023-06-29 16:03:57 [scrapy.extensions.telnet] INFO: Telnet Password: c1427b05ee62b612
+2023-06-29 16:03:57 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2023-06-29 16:03:57 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-06-29 16:03:57 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-06-29 16:03:57 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-06-29 16:03:57 [scrapy.core.engine] INFO: Spider opened
+2023-06-29 16:03:58 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-06-29 16:03:58 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-06-29 16:03:58 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-29 16:03:58 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)], pyOpenSSL 23.2.0 (OpenSSL 3.0.8 7 Feb 2023), cryptography 39.0.1, Platform Windows-10-10.0.19045-SP0
+2023-06-29 16:05:43 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-29 16:05:43 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)], pyOpenSSL 23.2.0 (OpenSSL 3.0.8 7 Feb 2023), cryptography 39.0.1, Platform Windows-10-10.0.19045-SP0
+2023-06-29 16:05:43 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-06-29 16:05:43 [asyncio] DEBUG: Using selector: SelectSelector
+2023-06-29 16:05:43 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-06-29 16:05:43 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.windows_events._WindowsSelectorEventLoop
+2023-06-29 16:05:43 [scrapy.extensions.telnet] INFO: Telnet Password: 9e684c808cb0ea8f
+2023-06-29 16:05:44 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2023-06-29 16:05:44 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-06-29 16:05:44 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-06-29 16:05:44 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-06-29 16:05:44 [scrapy.core.engine] INFO: Spider opened
+2023-06-29 16:05:44 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-06-29 16:05:44 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-06-29 16:05:44 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-29 16:05:44 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)], pyOpenSSL 23.2.0 (OpenSSL 3.0.8 7 Feb 2023), cryptography 39.0.1, Platform Windows-10-10.0.19045-SP0
+2023-06-29 16:06:43 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-29 16:06:43 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)], pyOpenSSL 23.2.0 (OpenSSL 3.0.8 7 Feb 2023), cryptography 39.0.1, Platform Windows-10-10.0.19045-SP0
+2023-06-29 16:06:43 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-06-29 16:06:43 [asyncio] DEBUG: Using selector: SelectSelector
+2023-06-29 16:06:43 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-06-29 16:06:43 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.windows_events._WindowsSelectorEventLoop
+2023-06-29 16:06:43 [scrapy.extensions.telnet] INFO: Telnet Password: b365a9b54a36498b
+2023-06-29 16:06:43 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2023-06-29 16:06:43 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-06-29 16:06:43 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-06-29 16:06:43 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-06-29 16:06:43 [scrapy.core.engine] INFO: Spider opened
+2023-06-29 16:06:43 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-06-29 16:06:43 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-06-29 16:06:43 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-29 16:06:43 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)], pyOpenSSL 23.2.0 (OpenSSL 3.0.8 7 Feb 2023), cryptography 39.0.1, Platform Windows-10-10.0.19045-SP0
+2023-06-29 16:07:51 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-29 16:07:51 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)], pyOpenSSL 23.2.0 (OpenSSL 3.0.8 7 Feb 2023), cryptography 39.0.1, Platform Windows-10-10.0.19045-SP0
+2023-06-29 16:07:51 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-06-29 16:07:51 [asyncio] DEBUG: Using selector: SelectSelector
+2023-06-29 16:07:51 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-06-29 16:07:51 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.windows_events._WindowsSelectorEventLoop
+2023-06-29 16:07:51 [scrapy.extensions.telnet] INFO: Telnet Password: 8f92ddae724fb9cb
+2023-06-29 16:07:52 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2023-06-29 16:07:52 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-06-29 16:07:52 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-06-29 16:07:52 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-06-29 16:07:52 [scrapy.core.engine] INFO: Spider opened
+2023-06-29 16:07:52 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-06-29 16:07:52 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-06-29 16:07:52 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-06-29 16:07:52 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.12, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)], pyOpenSSL 23.2.0 (OpenSSL 3.0.8 7 Feb 2023), cryptography 39.0.1, Platform Windows-10-10.0.19045-SP0
