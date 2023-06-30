@@ -1,28 +1,39 @@
-from gc import callbacks
-from re import sub
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from spiders.find_price import price_withheld_scraper
 from spiders.domain_scraper import DomainScraperSpider
+from spiders.property_results import PropertyResults
+from typing import List
 
 import os 
 import csv
 
 
-
-# gets list of propertys 
-def get_property_data(suburb_list=None, time_period=None):
+def scrape_listings(suburb_list: List[str], time_period: str) -> PropertyResults:
     """
-    example of how to run this:
-        suburb_list = ['earlwood-nsw-2206', 'Newtown-nsw-2042', 'Camperdown-NSW-2050']
-        get_property_data(suburb_list)
+        Scrape the listings for the given suburb list and time period, places in two separate lists
+        which is represented by the PropertyResults object
     """
+    # Initialise the PropertyResults object
+    property_results = PropertyResults()
 
+    # Define configs and scrape listings
     process = CrawlerProcess(get_project_settings())
     process.crawl(DomainScraperSpider,
                 suburb_list = suburb_list,
-                time_period = time_period)
+                time_period = time_period,
+                property_results_obj = property_results,
+                name='domain_scraper')
     process.start()
+
+    print(len(property_results._price_included))
+    print(len(property_results._price_excluded))
+
+    return property_results
+
+
+suburb_list = ['Camperdown-NSW-2050', 'Newtown-nsw-2042']
+scrape_listings(suburb_list = suburb_list, time_period = '1y')
 
 
 def find_prices_of_price_witheld():
@@ -68,27 +79,3 @@ def find_prices_of_price_witheld():
     process.start()
 
 
-# def test_run(second_funct):
-
-
-# TODO 
-# add function to find property price of a specific property and add to the csv 
-
-# find_prices_of_price_witheld()
-
-def test_func(suburb_list=None, time_period=None, second_func=None):
-    """
-    example of how to run this:
-        suburb_list = ['earlwood-nsw-2206', 'Newtown-nsw-2042', 'Camperdown-NSW-2050']
-        get_property_data(suburb_list)
-    """
-
-    process = CrawlerProcess(get_project_settings())
-    process.crawl(DomainScraperSpider,
-                suburb_list = suburb_list,
-                time_period = time_period)
-    second_func()
-
-
-suburb_list = ['earlwood-nsw-2206', 'Newtown-nsw-2042', 'Camperdown-NSW-2050']
-test_func(suburb_list, second_func = find_prices_of_price_witheld)
