@@ -2,8 +2,8 @@ from scrapy import Spider, Request
 from scrapy.exceptions import CloseSpider
 import re
 from datetime import datetime, timedelta
-from property import Property
-from property_results import PropertyResults
+from .property import Property
+from .property_results import PropertyResults
 import re
 from datetime import datetime, timedelta
 
@@ -12,13 +12,13 @@ class DomainScraperSpider(Spider):
     allowed_domains = ["domain.com.au"]
     start_urls = ["https://domain.com.au"]
 
-    def __init__(self, suburb_list, time_period, name, **kwargs):
+    def __init__(self, suburb_list, time_period, name, property_results_obj, **kwargs):
         '''
         Scraper instance is specific to a suburb and time period
         '''
         self.suburb_list = suburb_list
         self.time_period = time_period
-        self.property_results = PropertyResults()
+        self.property_results = property_results_obj
 
         super().__init__(name, **kwargs)
 
@@ -80,7 +80,7 @@ class DomainScraperSpider(Spider):
             property_obj = Property(address_line1, address_line2, price, sold_status, property_url, property_id)
             self.property_results.add_property(property_obj)
 
-
+        # Scrape next page if it exists
         if (page_number < int(last_page)):
             next_page_number = page_number + 1
             domain_search_url = f'https://www.domain.com.au/sold-listings/{suburb}/?sort=solddate-desc&page={next_page_number}'
@@ -89,6 +89,8 @@ class DomainScraperSpider(Spider):
                 callback=self.parse_search_results,
                 meta={'suburb': suburb, 'page_number': next_page_number, 'first_property_sold_date': first_property_sold_date}
             )
+        else:
+            raise CloseSpider('Searched up until required date')
             
             
 

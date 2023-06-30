@@ -17,3 +17,7 @@ class Property:
         self.sold_status_date = sold_status_date
         self.property_url = property_url
         self.property_id = property_id
+
+    def __str__(self):
+        address = f"{self.address_line_1}, {self.address_line_2}" if self.address_line_2 else self.address_line_1
+        return f'{{"address": "{address}", "price": {self.price}, "sold_status_date": "{self.sold_status_date}", "property_url": "{self.property_url}", "property_id": "{self.property_id}"}}'
