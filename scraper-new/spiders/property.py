@@ -3,7 +3,7 @@ class Property:
     '''
     Define Property object for casting scrapted data results
     '''
-    def __init__(self, address_line_1: str, address_line_2: str, price: int, sold_status_date: str, property_url: str, property_id: str):
+    def __init__(self, address_line_1: str, address_line_2: str, price: str, sold_status_date: str, property_url: str, property_id: str):
         self.address_line_1 = address_line_1
         self.address_line_2 = address_line_2
         
