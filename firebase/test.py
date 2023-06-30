@@ -36,7 +36,9 @@ fb_db.upload(data=data4)
 
 query = Query(date_min='04042003', date_max='07042003', suburb='belco')
 
-fb_db.check_exists(query=query)
+query_existence, ret_properties = fb_db.check_exists_query(query=query)
+print(query_existence, ret_properties)
+#fb_db.get_property_by_id('1114')
 #expecting output: 1114, 2013
 
 

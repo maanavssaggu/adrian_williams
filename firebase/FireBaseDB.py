@@ -61,10 +61,10 @@ class FireBaseDB:
 
     #checks if property exists by query
     #TODO: implement so it checks multiple suburbs at the same time 
-    def check_exists(self, query: Query):
+    def check_exists_query(self, query: Query):
         """
         input: query object 
-        output: True or False
+        output: boolean expression as to whether exists, and the property_data if exists
         """
 
         # if not isinstance(query, Query):
@@ -85,26 +85,38 @@ class FireBaseDB:
                 .where("suburb", "==", suburb) \
                 .stream()
 
-
         ret = []
         for result in query_results:
             data = result.to_dict()
-            ret.append(data['property_id'])
+            ret.append(data)
         print(ret)
-        return ret
+
+        # returns False if query doesnt exist 
+        if len(ret)==0:
+            return False
+
+        # returns true if query exists and the returns list of propertys
+        return True, ret
 
 
     #deletes a entry from database
     def delete(self, property_id, query):
+        #TODO
         raise NotImplementedError
 
     # get method to get a property
     def get_property_by_id(self, property_id):
-        raise NotImplementedError
+        db = firestore.client()
 
-    # gets propertys data by query 
-    def get_property_by_query(self, query):
-        raise NotImplementedError
+        data_ref = db.collection('properties').document(property_id)
+        data = data_ref.get()
+
+        if data.exists:
+            print(f'property_exists: {data.to_dict()}')
+            return data.to_dict()
+
+        print('property either doesnt exist or is not in our database')
+        return None
 
     def date_to_unix_timestamp(self, input_date):
         """
