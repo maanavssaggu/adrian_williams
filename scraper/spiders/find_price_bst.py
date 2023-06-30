@@ -77,12 +77,8 @@ class price_withheld_scraper(scrapy.Spider):
                     print(f"price is: {price}") # within our acceptance range 
                     field_names = ['address_line1', 'address_line2', 'price', 'sold_status_date', 'property_url', 'property_id']
                     
-                    # add to fire base
-                    property_ref = db.reference(f'Propertys/{self.property_id}')
-                    prop_price = round_to_nearest_thousand(self.max_price)
-                    property_ref.update({'price': prop_price})
-
-                    write_to_csv(field_names, abs_file_path, self.row_index, self.max_price, self.address_line_1, self.address_line_2)
+                    
+                    write_to_csv(field_names, abs_file_path, self.row_index, self.max_price, self.address_line_1, self.address_line_2, self.property_id)
                     # try:
                     #     with open(abs_file_path, 'r') as file:
                     #         reader = csv.DictReader(file)
@@ -116,7 +112,7 @@ class price_withheld_scraper(scrapy.Spider):
                         prop_price = round_to_nearest_thousand(self.max_price)
                         property_ref.update({'price': prop_price})
 
-                        write_to_csv(field_names, abs_file_path, self.row_index, self.max_price, self.address_line_1, self.address_line_2)
+                        write_to_csv(field_names, abs_file_path, self.row_index, self.max_price, self.address_line_1, self.address_line_2, self.property_id)
 
 
                 else:
@@ -128,8 +124,14 @@ class price_withheld_scraper(scrapy.Spider):
         except:
             raise CloseSpider('Connection lost, will retry')
 
-def write_to_csv(field_names, abs_file_path, data_index_row, price, ad1, ad2):
+def write_to_csv(field_names, abs_file_path, data_index_row, price, ad1, ad2, property_id):
     field_names = ['address_line1', 'address_line2', 'price', 'sold_status_date', 'property_url', 'property_id']
+
+    # add to fire base
+    property_ref = db.reference(f'Propertys/{property_id}')
+    prop_price = round_to_nearest_thousand(price)
+    property_ref.update({'price': prop_price})
+
 
     try:
         with open(abs_file_path, 'r') as file:

@@ -80,7 +80,7 @@ class DomainScraperSpider(Spider):
             property_obj = Property(address_line1, address_line2, price, sold_status, property_url, property_id)
             self.property_results.add_property(property_obj)
 
-
+        # goes through onto the next page (recursively)
         if (page_number < int(last_page)):
             next_page_number = page_number + 1
             domain_search_url = f'https://www.domain.com.au/sold-listings/{suburb}/?sort=solddate-desc&page={next_page_number}'

@@ -17,3 +17,18 @@ class Property:
         self.sold_status_date = sold_status_date
         self.property_url = property_url
         self.property_id = property_id
+
+    '''
+    Turn data into a dictionary to pass to fire_base
+    '''
+
+    def propertery_to_dict(self):
+        data = {'property_id': self.property_id,
+                'price': self.price,
+                'adress_line1': self.address_line_1,
+                'address_line2': self.address_line_2,
+                'property_url': self.property_url,
+                'sold_date': self.sold_status_date
+        }
+
+        return data
