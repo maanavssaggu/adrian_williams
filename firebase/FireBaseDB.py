@@ -11,8 +11,6 @@ import Query
 
 class FireBaseDB:
 
-    #querys in this are something which asks for a suburb and a date range
-
     #constructor
     def __init__(self, property_data=None):
         self.property_data = property_data
@@ -100,12 +98,31 @@ class FireBaseDB:
 
 
     #deletes a entry from database
-    def delete(self, property_id, query):
+    def delete_by_property_id(self, property_id):
+
+        """
+        deletes an entry in the firestore
+        """
+        #TODO
+        raise NotImplementedError
+
+    #deletes a entry from database
+    def delete_by_query(self, query: Query):
+
+        """
+        deletes by querys
+        """
         #TODO
         raise NotImplementedError
 
     # get method to get a property
     def get_property_by_id(self, property_id):
+
+        """
+        input: property_id
+        output: property data of corresponding id. outputs None if id doesnt exist
+        """
+
         db = firestore.client()
 
         data_ref = db.collection('properties').document(property_id)
@@ -148,15 +165,3 @@ class FireBaseDB:
         output: true/False depending on whether or not it is a timestamp
         """
         return isinstance(value, datetime.datetime)
-
-# datetime_string = '01012003'
-# date = datetime.datetime.strptime(datetime_string, "%d%m%Y")
-# timestamp= int(date.timestamp())
-# print(timestamp)
-
-# datetime_string_2 = '01022003'
-# date_2 = datetime.datetime.strptime(datetime_string_2, "%d%m%Y")
-# timestamp_2 = int(date_2.timestamp())
-# print(timestamp_2)
-
-# print(f'did date 1 {datetime_string} = {date} happen before date 2 {datetime_string_2} = {date_2}?:\n', timestamp<timestamp_2)
