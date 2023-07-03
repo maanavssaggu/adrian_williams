@@ -1,8 +1,9 @@
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from spiders.find_price import price_withheld_scraper
+from spiders.find_price import PriceWithheldScraper
 from spiders.domain_scraper import DomainScraperSpider
 from spiders.property_results import PropertyResults
+from spiders.property import Property
 from typing import List
 
 import os 
@@ -26,56 +27,34 @@ def scrape_listings(suburb_list: List[str], time_period: str) -> PropertyResults
                 name='domain_scraper')
     process.start()
 
-    print(len(property_results._price_included))
-    print(len(property_results._price_excluded))
+    for property in property_results.get_price_included():
+        print(property)
 
     return property_results
 
 
-suburb_list = ['Camperdown-NSW-2050', 'Newtown-nsw-2042']
+suburb_list = ['Camperdown-NSW-2050']
 scrape_listings(suburb_list = suburb_list, time_period = '1y')
 
 
-def find_prices_of_price_witheld():
+def find_prices_of_price_witheld(property_results_obj: PropertyResults) -> List[Property]:
     """
-    just calling this will go through all the csvs in price_excluded and then updata their prices 
+    From the property results, find all prices from excluded list and scrape them
     """
-
-    # Define your paths
-    rel_path = "../data/price_excluded"
-    exc_property_folder_path = rel_path
-
+    # We will atleast have the included property results list as a result
+    all_properties = property_results_obj.get_price_included().copy()
+    
+    # Define configs and scrape prices only
     process = CrawlerProcess(get_project_settings())
-
-    for file in os.listdir(exc_property_folder_path):
-        if file.endswith('.csv'):
-            
-            file_path = os.path.join(exc_property_folder_path, file)
-            
-            with open(file_path, 'r') as suburb:
-                suburb_dict = csv.DictReader(suburb)
-                for i, property in enumerate(suburb_dict):
-                    ad1 = str(property['address_line1'])
-                    ad2 = str(property['address_line2'])
-                    property_id = str(property['property_id'])
-                    is_price_withheld = property['price'] == 'Price Withheld'
-                    file_name = file
-                    
-                    # only search if needed
-                    if is_price_withheld:
-                        print(f'i: {i}') 
-                        ad1 = ad1.replace(" ", "+")
-                        ad2 = ad2.replace(" ", "-")
-
-                        process.crawl(
-                            price_withheld_scraper,
-                            address_line_1=ad1,
-                            address_line_2=ad2,
-                            file_path_given=file_path,
-                            row_index=i,
-                            file_name = file_name,
-                            property_id = property_id,
-                        )
+    process.crawl(PriceWithheldScraper,
+                property_results = property_results_obj,
+                all_properties_result = all_properties,
+                name='price_scraper')      
     process.start()
+
+    return all_properties
+
+
+
 
 

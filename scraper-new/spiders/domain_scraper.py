@@ -6,13 +6,14 @@ from .property import Property
 from .property_results import PropertyResults
 import re
 from datetime import datetime, timedelta
+from typing import List
 
 class DomainScraperSpider(Spider):
     name = "domain_scraper"
     allowed_domains = ["domain.com.au"]
     start_urls = ["https://domain.com.au"]
 
-    def __init__(self, suburb_list, time_period, name, property_results_obj, **kwargs):
+    def __init__(self, suburb_list: List[str], time_period: str, name: str, property_results_obj: PropertyResults, **kwargs):
         '''
         Scraper instance is specific to a suburb and time period
         '''
