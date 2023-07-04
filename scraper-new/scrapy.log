@@ -1000,3 +1000,279 @@ TypeError: __init__() missing 1 required positional argument: 'name'
  'scheduler/enqueued/memory': 4,
  'start_time': datetime.datetime(2023, 6, 30, 16, 23, 49, 834049)}
 2023-07-01 02:23:55 [scrapy.core.engine] INFO: Spider closed (Searched up until required date)
+2023-07-02 21:47:09 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-07-02 21:47:09 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.10.11 (main, Apr 20 2023, 13:59:00) [Clang 14.0.6 ], pyOpenSSL 23.0.0 (OpenSSL 1.1.1t  7 Feb 2023), cryptography 39.0.1, Platform macOS-10.16-x86_64-i386-64bit
+2023-07-02 21:47:09 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-07-02 21:47:09 [asyncio] DEBUG: Using selector: KqueueSelector
+2023-07-02 21:47:09 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-07-02 21:47:09 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2023-07-02 21:47:09 [scrapy.extensions.telnet] INFO: Telnet Password: d9d3e826c3453fce
+2023-07-02 21:47:09 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2023-07-02 21:47:09 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-07-02 21:47:09 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-07-02 21:47:09 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-07-02 21:47:09 [scrapy.core.engine] INFO: Spider opened
+2023-07-02 21:47:09 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-07-02 21:47:09 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-07-02 21:47:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FNewtown-nsw-2042%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-07-02 21:47:14 [scrapy.core.engine] INFO: Closing spider (Searched up until required date)
+2023-07-02 21:47:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCamperdown-NSW-2050%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-07-02 21:47:14 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 759,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 249170,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 4.819584,
+ 'finish_reason': 'Searched up until required date',
+ 'finish_time': datetime.datetime(2023, 7, 2, 11, 47, 14, 423624),
+ 'httpcompression/response_bytes': 1394058,
+ 'httpcompression/response_count': 2,
+ 'log_count/DEBUG': 5,
+ 'log_count/INFO': 10,
+ 'memusage/max': 56709120,
+ 'memusage/startup': 56705024,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 4,
+ 'scheduler/dequeued/memory': 4,
+ 'scheduler/enqueued': 4,
+ 'scheduler/enqueued/memory': 4,
+ 'start_time': datetime.datetime(2023, 7, 2, 11, 47, 9, 604040)}
+2023-07-02 21:47:14 [scrapy.core.engine] INFO: Spider closed (Searched up until required date)
+2023-07-02 21:47:38 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-07-02 21:47:38 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.10.11 (main, Apr 20 2023, 13:59:00) [Clang 14.0.6 ], pyOpenSSL 23.0.0 (OpenSSL 1.1.1t  7 Feb 2023), cryptography 39.0.1, Platform macOS-10.16-x86_64-i386-64bit
+2023-07-02 21:47:38 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-07-02 21:47:38 [asyncio] DEBUG: Using selector: KqueueSelector
+2023-07-02 21:47:38 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-07-02 21:47:38 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2023-07-02 21:47:38 [scrapy.extensions.telnet] INFO: Telnet Password: 88ee43d3ae7713ac
+2023-07-02 21:47:38 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2023-07-02 21:47:38 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-07-02 21:47:38 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-07-02 21:47:38 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-07-02 21:47:38 [scrapy.core.engine] INFO: Spider opened
+2023-07-02 21:47:38 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-07-02 21:47:38 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-07-02 21:47:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FNewtown-nsw-2042%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-07-02 21:47:43 [scrapy.core.engine] INFO: Closing spider (Searched up until required date)
+2023-07-02 21:47:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCamperdown-NSW-2050%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-07-02 21:47:45 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 759,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 249124,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 7.086064,
+ 'finish_reason': 'Searched up until required date',
+ 'finish_time': datetime.datetime(2023, 7, 2, 11, 47, 45, 933603),
+ 'httpcompression/response_bytes': 1393954,
+ 'httpcompression/response_count': 2,
+ 'log_count/DEBUG': 5,
+ 'log_count/INFO': 10,
+ 'memusage/max': 57323520,
+ 'memusage/startup': 57319424,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 4,
+ 'scheduler/dequeued/memory': 4,
+ 'scheduler/enqueued': 4,
+ 'scheduler/enqueued/memory': 4,
+ 'start_time': datetime.datetime(2023, 7, 2, 11, 47, 38, 847539)}
+2023-07-02 21:47:45 [scrapy.core.engine] INFO: Spider closed (Searched up until required date)
+2023-07-02 21:47:52 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-07-02 21:47:52 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.10.11 (main, Apr 20 2023, 13:59:00) [Clang 14.0.6 ], pyOpenSSL 23.0.0 (OpenSSL 1.1.1t  7 Feb 2023), cryptography 39.0.1, Platform macOS-10.16-x86_64-i386-64bit
+2023-07-02 21:47:52 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-07-02 21:47:52 [asyncio] DEBUG: Using selector: KqueueSelector
+2023-07-02 21:47:52 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-07-02 21:47:52 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2023-07-02 21:47:52 [scrapy.extensions.telnet] INFO: Telnet Password: 5c453c31caf7f147
+2023-07-02 21:47:52 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2023-07-02 21:47:52 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-07-02 21:47:52 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-07-02 21:47:52 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-07-02 21:47:52 [scrapy.core.engine] INFO: Spider opened
+2023-07-02 21:47:52 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-07-02 21:47:52 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-07-02 21:47:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCamperdown-NSW-2050%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-07-02 21:47:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FNewtown-nsw-2042%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-07-02 21:47:57 [scrapy.core.engine] INFO: Closing spider (Searched up until required date)
+2023-07-02 21:47:57 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 759,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 249187,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 4.405491,
+ 'finish_reason': 'Searched up until required date',
+ 'finish_time': datetime.datetime(2023, 7, 2, 11, 47, 57, 298543),
+ 'httpcompression/response_bytes': 1394021,
+ 'httpcompression/response_count': 2,
+ 'log_count/DEBUG': 5,
+ 'log_count/INFO': 10,
+ 'memusage/max': 57524224,
+ 'memusage/startup': 57520128,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 4,
+ 'scheduler/dequeued/memory': 4,
+ 'scheduler/enqueued': 4,
+ 'scheduler/enqueued/memory': 4,
+ 'start_time': datetime.datetime(2023, 7, 2, 11, 47, 52, 893052)}
+2023-07-02 21:47:57 [scrapy.core.engine] INFO: Spider closed (Searched up until required date)
+2023-07-04 18:04:35 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: scraper)
+2023-07-04 18:04:35 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.10.11 (main, Apr 20 2023, 13:59:00) [Clang 14.0.6 ], pyOpenSSL 23.0.0 (OpenSSL 1.1.1t  7 Feb 2023), cryptography 39.0.1, Platform macOS-10.16-x86_64-i386-64bit
+2023-07-04 18:04:35 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'scraper',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['scraper.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-07-04 18:04:35 [asyncio] DEBUG: Using selector: KqueueSelector
+2023-07-04 18:04:35 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-07-04 18:04:35 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2023-07-04 18:04:35 [scrapy.extensions.telnet] INFO: Telnet Password: c2e9c8a998df2222
+2023-07-04 18:04:35 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2023-07-04 18:04:35 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-07-04 18:04:35 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-07-04 18:04:35 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2023-07-04 18:04:35 [scrapy.core.engine] INFO: Spider opened
+2023-07-04 18:04:35 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-07-04 18:04:35 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-07-04 18:04:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FNewtown-nsw-2042%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-07-04 18:04:41 [scrapy.core.engine] INFO: Closing spider (Searched up until required date)
+2023-07-04 18:04:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://proxy.scrapeops.io/v1/?api_key=8d29e603-4fff-45b4-a8f7-c960a78b2202&url=https%3A%2F%2Fwww.domain.com.au%2Fsold-listings%2FCamperdown-NSW-2050%2F%3Fsort%3Dsolddate-desc%26page%3D1> (referer: None)
+2023-07-04 18:04:41 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 759,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 247509,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 5.71643,
+ 'finish_reason': 'Searched up until required date',
+ 'finish_time': datetime.datetime(2023, 7, 4, 8, 4, 41, 535024),
+ 'httpcompression/response_bytes': 1384271,
+ 'httpcompression/response_count': 2,
+ 'log_count/DEBUG': 5,
+ 'log_count/INFO': 10,
+ 'memusage/max': 57106432,
+ 'memusage/startup': 57106432,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 4,
+ 'scheduler/dequeued/memory': 4,
+ 'scheduler/enqueued': 4,
+ 'scheduler/enqueued/memory': 4,
+ 'start_time': datetime.datetime(2023, 7, 4, 8, 4, 35, 818594)}
+2023-07-04 18:04:41 [scrapy.core.engine] INFO: Spider closed (Searched up until required date)

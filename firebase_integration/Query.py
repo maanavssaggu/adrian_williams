@@ -17,10 +17,4 @@ class Query:
         self.suburbs = suburbs
         self.property_id = property_id
 
-    # def get_date_min(self):
-    #     return self.get_date_min
-    
-    # def get_date_max(self):
-    #     return self.get_date_max
-
     
