@@ -14,7 +14,6 @@ class Property:
         else:
             self.price = int(price.replace('$', '').replace(',', ''))
 
-        self.price = price
         self.sold_status_date = sold_status_date
         self.property_url = property_url
         self.property_id = property_id

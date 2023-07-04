@@ -2,13 +2,7 @@ import scrapy
 from scrapy.exceptions import CloseSpider
 from .property import Property
 from .property_results import PropertyResults
-import time
 from typing import List
-
-
-
-# price solde at 1820000
-
 
 
 class PriceWithheldScraper(scrapy.Spider):
@@ -16,7 +10,7 @@ class PriceWithheldScraper(scrapy.Spider):
     Scrapes just the price for those witheld properties, properties to be queried should be in the following format
         address_line_2 = 'earlwood-nsw-2206'
         address_line_1 = "13+winston+avenue"
-        price = 1000000
+        price = 1820000
     '''
     allowed_domains = ["domain.com.au"]
     start_urls = ["https://domain.com.au"]

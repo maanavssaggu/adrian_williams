@@ -75,6 +75,7 @@ class DomainScraperSpider(Spider):
 
             # Stop searching if we are past last monday 
             if (is_before(search_to_date, current_date)):
+                print("Closing spider because of date")
                 raise CloseSpider('Searched up until required date')
             
             # Create property object and add to property results
