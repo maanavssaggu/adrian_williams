@@ -10,7 +10,6 @@ import firebase_admin
 from firebase_admin import db
 from firebase_admin import credentials
 from firebase_admin import initialize_app
-from 
 
 class DomainScraperSpider(Spider):
     name = "domain_scraper"
