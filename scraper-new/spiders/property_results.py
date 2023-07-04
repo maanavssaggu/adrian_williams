@@ -13,3 +13,9 @@ class PropertyResults:
             self._price_excluded.append(property)
         else:
             self._price_included.append(property)
+
+    def get_price_included(self):
+        return self._price_included
+    
+    def get_price_excluded(self):
+        return self._price_excluded

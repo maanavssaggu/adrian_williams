@@ -1,11 +1,12 @@
+from typing import List
 
 class Property:
     '''
     Define Property object for casting scrapted data results
     '''
-    def __init__(self, address_line_1: str, address_line_2: str, price: str, sold_status_date: str, property_url: str, property_id: str):
+    def __init__(self, address_line_1: str, address_line_2: List[str], price: str, sold_status_date: str, property_url: str, property_id: str):
         self.address_line_1 = address_line_1
-        self.address_line_2 = address_line_2
+        self.address_line_2 = "-".join(address_line_2)
         
         # Convert price to int
         if (price == "Price Withheld"):
@@ -33,5 +34,4 @@ class Property:
 
         return data
     def __str__(self):
-        address = f"{self.address_line_1}, {self.address_line_2}" if self.address_line_2 else self.address_line_1
-        return f'{{"address": "{address}", "price": {self.price}, "sold_status_date": "{self.sold_status_date}", "property_url": "{self.property_url}", "property_id": "{self.property_id}"}}'
+        return f'{{"address_line_1": "{self.address_line_1}", "address_line_2": {self.address_line_2}, "price": {self.price}, "sold_status_date": "{self.sold_status_date}", "property_url": "{self.property_url}", "property_id": "{self.property_id}"}}'

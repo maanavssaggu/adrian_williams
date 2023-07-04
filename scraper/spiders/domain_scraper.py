@@ -10,6 +10,7 @@ import firebase_admin
 from firebase_admin import db
 from firebase_admin import credentials
 from firebase_admin import initialize_app
+from 
 
 class DomainScraperSpider(Spider):
     name = "domain_scraper"
@@ -101,6 +102,8 @@ class DomainScraperSpider(Spider):
                 'property_url': property_url,
                 'property_id': property_id,
             }
+
+
 
             property_id = str(data['property_id'])
             ref = db.reference("Propertys")
