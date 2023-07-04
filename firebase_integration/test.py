@@ -2,6 +2,11 @@ from FireBaseDB import FireBaseDB
 from Query import Query
 import datetime
 
+"""
+    File used for testing whether the firestore is working. this file can be deleted.
+"""
+
+
 fb_db = FireBaseDB()
 
 data ={ 'property_id': '2014',

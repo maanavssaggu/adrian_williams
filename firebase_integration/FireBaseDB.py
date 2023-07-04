@@ -28,7 +28,6 @@ class FireBaseDB:
                 "databaseURL": "https://aw-wsr-default-rtdb.firebaseio.com/"
             })
             self.db = firestore.client()
-            print(self.date_to_unix_timestamp('04042003'))
             print('firebase initilised')
         else:
             # upload any data given in the constructor
