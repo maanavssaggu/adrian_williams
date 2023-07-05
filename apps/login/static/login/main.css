@@ -1,0 +1,67 @@
+* {
+    background-color: #101820;
+    color: aliceblue;
+}
+
+
+h1 {
+    /* Just as an example of how css can be added to templates */
+    padding-top: 20px;
+    font-family: "maison-neue";
+    font-weight: 100;
+    font-size: 60px;
+    text-align: center;
+}
+
+h2 {
+    font-family: "maison-neue";
+    font-weight: 100;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+.website-header {
+    justify-content: center;
+}
+
+input {
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 600px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 200px;
+    margin-top: 40px;
+}
+
+img {
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 50px;
+}
+
+.login {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+}
