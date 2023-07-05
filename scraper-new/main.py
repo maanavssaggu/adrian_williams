@@ -50,8 +50,8 @@ curr = PropertyResults()
 prop = Property("13 winston avenue", ['earlwood', 'nsw', '2206'], "Price Withheld", "","","")
 curr.add_property(prop)
 
-print(len(curr.get_price_excluded()))
 
 res = find_prices_of_price_witheld(curr)
 
-print(res)
+for prop in res:
+    print(prop)
