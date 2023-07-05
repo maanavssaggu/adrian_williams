@@ -73,6 +73,7 @@ class DomainScraperSpider(Spider):
             # get our cutoff date 
             search_to_date = last_monday_date(first_property_sold_date)
 
+            # TODO NEEDS TO CHECK DATE PROPERLY
             # Stop searching if we are past last monday 
             if (is_before(search_to_date, current_date)):
                 print("Closing spider because of date")
