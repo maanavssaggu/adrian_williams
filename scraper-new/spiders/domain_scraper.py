@@ -3,7 +3,6 @@ from scrapy.exceptions import CloseSpider
 import re
 from datetime import datetime, timedelta
 from .property import Property
-from .property_results import PropertyResults
 import re
 from datetime import datetime, timedelta
 from typing import List
@@ -13,13 +12,13 @@ class DomainScraperSpider(Spider):
     allowed_domains = ["domain.com.au"]
     start_urls = ["https://domain.com.au"]
 
-    def __init__(self, suburb_list: List[str], time_period: str, name: str, property_results_obj: PropertyResults, **kwargs):
+    def __init__(self, suburb_list: List[str], time_period: str, name: str, all_properties: List[Property], **kwargs):
         '''
         Scraper instance is specific to a suburb and time period
         '''
         self.suburb_list = suburb_list
         self.time_period = time_period
-        self.property_results = property_results_obj
+        self.all_properties = all_properties
 
         super().__init__(name, **kwargs)
 
@@ -75,16 +74,27 @@ class DomainScraperSpider(Spider):
 
             # TODO NEEDS TO CHECK DATE PROPERLY
             # Stop searching if we are past last monday 
-            if (is_before(search_to_date, current_date)):
-                print("Closing spider because of date")
-                raise CloseSpider('Searched up until required date')
+            # if (is_before(search_to_date, current_date)):
+            #     print("Closing spider because of date")
+            #     raise CloseSpider('Searched up until required date')
             
             # Create property object and add to property results
             property_obj = Property(address_line1, address_line2, price, sold_status, property_url, property_id)
-            self.property_results.add_property(property_obj)
+
+            # Check if property price was found 
+            if property_obj.price == -1:
+                address_line_1 = property_obj.address_line_1
+                address_line_2 = property_obj.address_line_2
+
+                property_url = form_URL(address_line_1, address_line_2, 0)
+                yield Request(property_url, callback=self.check_property_exists, meta={'curr_property': property_obj})
+            else:
+                self.all_properties.append(property_obj)
+
+            # self.property_results.add_property(property_obj)
 
         # Scrape next page if it exists
-        if (page_number < int(last_page)):
+        if (page_number < 1):
             next_page_number = page_number + 1
             domain_search_url = f'https://www.domain.com.au/sold-listings/{suburb}/?sort=solddate-desc&page={next_page_number}'
             yield Request(
@@ -92,10 +102,68 @@ class DomainScraperSpider(Spider):
                 callback=self.parse_search_results,
                 meta={'suburb': suburb, 'page_number': next_page_number, 'first_property_sold_date': first_property_sold_date}
             )
+        
+
+    def check_property_exists(self, response):
+        '''
+        Before the price search, the property must exist, if it does not exist, then we can skip the property
+        If it does, we need to extract the HTML so we can check it against future scrapes
+        '''
+        curr_property = response.meta['curr_property']
+
+        # Check that inital property actually exists
+        property_html = response.xpath('//li[@class="is-first-in-list css-1qp9106"]').get()
+        if not property_html:
+            return
+
+        # If it does, form the URL again, and start the price search
+        url = form_URL(curr_property.address_line_1, curr_property.address_line_2, 5e6)
+        yield Request(url, callback=self.search_property, meta={'curr_property': curr_property, 
+                                                                       'property_html': property_html,
+                                                                       'low': 0,
+                                                                       'high': 1e7})
+
+    def search_property(self, response):
+        '''
+        Performs a price search on the specified property, if the property is found, then we can stop the search
+        '''
+        # Extract the property fields from the response
+        curr_property = response.meta['curr_property']
+        property_html = response.meta['property_html']
+        low = response.meta['low']
+        high = response.meta['high']
+
+        # If property is found
+        if ((high - low) <= 1e5):
+            curr_property.price = (low + high) / 2
+            self.all_properties.append(curr_property)
+            return
+
+        # Check if the property exists at the searched price
+        first_property = response.xpath('//li[@class="is-first-in-list css-1qp9106"]').get()
+        
+        # Update bounds based on whether the property exists or not
+        if not first_property or first_property != property_html:
+            high = (low + high) / 2
         else:
-            raise CloseSpider('Searched up until required date')
+            low = (low + high) / 2
+
+        # Update price fields
+        new_price_to_search = (low + high) / 2
+        url = form_URL(curr_property.address_line_1, curr_property.address_line_2, new_price_to_search)
+        yield Request(url, callback=self.search_property, meta={'curr_property': curr_property, 
+                                                                       'property_html': property_html,
+                                                                       'low': low,
+                                                                       'high': high})
             
-            
+
+
+
+def form_URL(ad1, ad2, price):
+    '''
+    Given the property fields, forms the URL to be scraped
+    '''
+    return f"https://www.domain.com.au/sold-listings/{ad2}/?price={price}-any&sort=dateupdated-desc&street={ad1}"
 
 """
 Converts sold status to easier to compute data -> this function should be relocated
