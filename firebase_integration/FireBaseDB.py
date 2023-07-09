@@ -16,7 +16,7 @@ class FireBaseDB:
         self.property_data = property_data
 
         # get paths to initilise firebase
-        relative_path = "../credentials/aw-wsr-firebase-adminsdk-458m1-cdc8443299.json"
+        relative_path = "credentials/aw-wsr-firebase-adminsdk-458m1-cdc8443299.json"
         base_dir = os.path.dirname(os.path.abspath(__file__))
         absolute_path = os.path.join(base_dir, relative_path)
 
