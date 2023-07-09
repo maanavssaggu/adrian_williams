@@ -1,79 +1,67 @@
 from scrapy import Spider, Request
-import requests
 from scrapy.exceptions import CloseSpider
 import re
-import csv
 from datetime import datetime, timedelta
-import time 
-import os 
-import firebase_admin
-from firebase_admin import db
-from firebase_admin import credentials
-from firebase_admin import initialize_app
+from .property import Property
+import re
+from datetime import datetime, timedelta
+from typing import List
 
 class DomainScraperSpider(Spider):
     name = "domain_scraper"
     allowed_domains = ["domain.com.au"]
     start_urls = ["https://domain.com.au"]
 
-    def __init__(self, suburb_list = None, time_period = None, name=None, **kwargs):
+    def __init__(self, suburb_list: List[str], time_period: str, name: str, all_properties: List[Property], **kwargs):
+        '''
+        Scraper instance is specific to a suburb and time period
+        '''
         self.suburb_list = suburb_list
         self.time_period = time_period
-
-        # get paths to initilise firebase
-        relative_path = "../../credentials/aw-wsr-firebase-adminsdk-458m1-b68fb8fd1d.json"
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        absolute_path = os.path.join(base_dir, relative_path)
-        print(f'rel_path: {relative_path} \n base_dir: {base_dir} \n absolute_path: {absolute_path}')
-        
-        # initilise firebase
-        cred = credentials.Certificate(absolute_path)
-        firebase_admin.initialize_app(cred, {
-            "databaseURL": "https://aw-wsr-default-rtdb.firebaseio.com/"
-        })
+        self.all_properties = all_properties
 
         super().__init__(name, **kwargs)
 
     def start_requests(self):
-        suburb_list = self.suburb_list
-        for suburb in suburb_list:
-            page_number = 1  # starts from 1
-            domain_dot_com_URL = f"https://www.domain.com.au/sold-listings/{suburb}/?sort=solddate-desc&page={page_number}"
-            print(domain_dot_com_URL)
+        '''
+        "main" function of the scraper, starting scraping from the first page of the search results
+        '''
+        for suburb in self.suburb_list:
+            starting_page_number = 1
+            domain_dot_com_URL = f"https://www.domain.com.au/sold-listings/{suburb}/?sort=solddate-desc&page={starting_page_number}"
             yield Request(
                 url=domain_dot_com_URL,
                 callback=self.parse_search_results,
-                meta={'suburb': suburb, 'page_number': page_number, 'first_property_sold_date': None}
+                meta={'suburb': suburb, 'page_number': starting_page_number, 'first_property_sold_date': None}
             )
 
     def parse_search_results(self, response):
-        start = time.time()
+        '''
+        Processes the search results page, and then moves onto the next page
+        '''
+        # Extract the parameters from the meta dictionary
         suburb = response.meta['suburb']
         page_number = response.meta['page_number']
         first_property_sold_date = response.meta['first_property_sold_date']
 
-        property_list = response.xpath('//li[@class="css-1qp9106"]')
+        # Extract property list from the search results page
         first_property = response.xpath('//li[@class="is-first-in-list css-1qp9106"]')
+        property_list = response.xpath('//li[@class="css-1qp9106"]')
         property_list = first_property + property_list
 
-        # Get all page numbers
-        page_numbers = response.xpath('//div[@class="css-1ytqxcs"]/a[@data-testid="paginator-page-button"]/text()').getall()
-        last_page = page_numbers[-1]
+        # Extract last page number
+        last_page = response.xpath('//div[@class="css-1ytqxcs"]/a[@data-testid="paginator-page-button"]/text()').getall()[-1]
 
-        search_to_date = 0
-
-        # Process each property and write to the appropriate file
-        for i, property_item in enumerate(property_list):
+        # Process each property and cast to property object
+        for property_item in property_list:
+            # Extract all data from HTML
             address_line1 = property_item.xpath(".//a/h2/span[@data-testid='address-line1']/text()").get()
             address_line2 = property_item.xpath('.//h2[@data-testid="address-wrapper"]/span[@data-testid="address-line2"]/span/text()').getall()
             price = property_item.xpath(".//p[@data-testid='listing-card-price']/text()").get()
             sold_status = property_item.xpath('.//div[@data-testid="listing-card-tag"]/span[@class="css-1nj9ymt"]/text()').get()
-
             property_url = property_item.xpath('.//a/@href').get()
             property_id = re.search(r'(\d+)$', property_url).group()
-            # property_url = 0
             
-
             # gets date of current property 
             current_date = sold_status_to_date(sold_status)
 
@@ -83,77 +71,99 @@ class DomainScraperSpider(Spider):
 
             # get our cutoff date 
             search_to_date = last_monday_date(first_property_sold_date)
-            print(f'this spider only searches up: {search_to_date} \n')
 
+            # TODO NEEDS TO CHECK DATE PROPERLY
+            # Stop searching if we are past last monday 
+            # if (is_before(search_to_date, current_date)):
+            #     print("Closing spider because of date")
+            #     raise CloseSpider('Searched up until required date')
+            
+            # Create property object and add to property results
+            property_obj = Property(address_line1, address_line2, price, sold_status, property_url, property_id)
 
-            # # Stop searching if we are past last monday 
-            if (is_before(search_to_date, current_date)):
-                print(f'search up until required date for {suburb} \n')
+            # Check if property price was found 
+            if property_obj.price == -1:
+                address_line_1 = property_obj.address_line_1
+                address_line_2 = property_obj.address_line_2
 
-                raise CloseSpider('searched up until required date')
-
-            # Include property_id in data dictionary
-            data = {
-                'address_line1': address_line1,
-                'address_line2': ' '.join(address_line2),  # joins the list into a string
-                'price': price,
-                'sold_status_date': sold_status,
-                'property_url': property_url,
-                'property_id': property_id,
-            }
-
-
-
-            property_id = str(data['property_id'])
-            ref = db.reference("Propertys")
-            ref.child(data['property_id']).set(data)
-
-            # This will get the absolute path to the directory where your script file is located
-            current_script_dir = os.path.dirname(os.path.abspath(__file__))
-
-            included_dir = os.path.join(current_script_dir, '../../data/price_included')
-            excluded_dir = os.path.join(current_script_dir, '../../data/price_excluded')
-
-            # Ensuring paths are absolute
-            included_dir = os.path.abspath(included_dir)
-            excluded_dir = os.path.abspath(excluded_dir)
-
-            suburb_price_included = os.path.join(included_dir, f'{suburb}_included.csv')
-            suburb_price_excluded = os.path.join(excluded_dir, f'{suburb}_excluded.csv')
-
-            field_names = ['address_line1', 'address_line2', 'price', 'sold_status_date', 'property_url', 'property_id']
-
-            if (price == "Price Withheld"):
-                with open(suburb_price_excluded, 'a', newline='') as exc_price_file:
-                    writer_price_exc = csv.DictWriter(exc_price_file, fieldnames=field_names)
-                    if exc_price_file.tell() == 0: # initilise csv file
-                        writer_price_exc.writeheader()
-                    writer_price_exc.writerow(data) # update csv file
+                property_url = form_URL(address_line_1, address_line_2, 0)
+                yield Request(property_url, callback=self.check_property_exists, meta={'curr_property': property_obj})
             else:
-                with open(suburb_price_included, 'a', newline='') as price_inc_file:
-                    writer_price_inc = csv.DictWriter(price_inc_file, fieldnames=field_names)
-                    if price_inc_file.tell() == 0:
-                        writer_price_inc.writeheader()
-                    writer_price_inc.writerow(data)
+                self.all_properties.append(property_obj)
 
-        end = time.time()
-        total_time = end - start
+            # self.property_results.add_property(property_obj)
 
-        formatted_time = "{:.2f}".format(total_time)
-        self.logger.info(f"Total time taken: {formatted_time} seconds")
-
-        for page_num in range(page_number + 1, int(last_page) + 1):
-            domain_search_url = f'https://www.domain.com.au/sold-listings/{suburb}/?sort=solddate-desc&page={page_num}'
+        # Scrape next page if it exists
+        if (page_number < 1):
+            next_page_number = page_number + 1
+            domain_search_url = f'https://www.domain.com.au/sold-listings/{suburb}/?sort=solddate-desc&page={next_page_number}'
             yield Request(
                 url=domain_search_url,
                 callback=self.parse_search_results,
-                meta={'suburb': suburb, 'page_number': page_num, 'first_property_sold_date': first_property_sold_date}
+                meta={'suburb': suburb, 'page_number': next_page_number, 'first_property_sold_date': first_property_sold_date}
             )
-            
         
 
-import re
-from datetime import datetime, timedelta
+    def check_property_exists(self, response):
+        '''
+        Before the price search, the property must exist, if it does not exist, then we can skip the property
+        If it does, we need to extract the HTML so we can check it against future scrapes
+        '''
+        curr_property = response.meta['curr_property']
+
+        # Check that inital property actually exists
+        property_html = response.xpath('//li[@class="is-first-in-list css-1qp9106"]').get()
+        if not property_html:
+            return
+
+        # If it does, form the URL again, and start the price search
+        url = form_URL(curr_property.address_line_1, curr_property.address_line_2, 5e6)
+        yield Request(url, callback=self.search_property, meta={'curr_property': curr_property, 
+                                                                       'property_html': property_html,
+                                                                       'low': 0,
+                                                                       'high': 1e7})
+
+    def search_property(self, response):
+        '''
+        Performs a price search on the specified property, if the property is found, then we can stop the search
+        '''
+        # Extract the property fields from the response
+        curr_property = response.meta['curr_property']
+        property_html = response.meta['property_html']
+        low = response.meta['low']
+        high = response.meta['high']
+
+        # If property is found
+        if ((high - low) <= 1e5):
+            curr_property.price = (low + high) / 2
+            self.all_properties.append(curr_property)
+            return
+
+        # Check if the property exists at the searched price
+        first_property = response.xpath('//li[@class="is-first-in-list css-1qp9106"]').get()
+        
+        # Update bounds based on whether the property exists or not
+        if not first_property or first_property != property_html:
+            high = (low + high) / 2
+        else:
+            low = (low + high) / 2
+
+        # Update price fields
+        new_price_to_search = (low + high) / 2
+        url = form_URL(curr_property.address_line_1, curr_property.address_line_2, new_price_to_search)
+        yield Request(url, callback=self.search_property, meta={'curr_property': curr_property, 
+                                                                       'property_html': property_html,
+                                                                       'low': low,
+                                                                       'high': high})
+            
+
+
+
+def form_URL(ad1, ad2, price):
+    '''
+    Given the property fields, forms the URL to be scraped
+    '''
+    return f"https://www.domain.com.au/sold-listings/{ad2}/?price={price}-any&sort=dateupdated-desc&street={ad1}"
 
 """
 Converts sold status to easier to compute data -> this function should be relocated
