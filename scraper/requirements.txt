@@ -11,7 +11,7 @@ charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654
 constantly==15.1.0
 cryptography @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_19cvzxmeb9/croot/cryptography_1677533085498/work
 cssselect==1.2.0
-Django==4.2.2 
+Django==4.2.2
 filelock==3.12.1
 firebase-admin==6.2.0
 google-api-core==2.11.1
