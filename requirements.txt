@@ -1,18 +1,5 @@
-asgiref==3.7.2
-attrs==23.1.0
-Automat==22.10.0
 beautifulsoup4==4.12.2
-brotlipy==0.7.0
-CacheControl==0.13.1
-cachetools==5.3.1
-certifi==2023.5.7
-cffi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_1b0qzba5nr/croot/cffi_1670423213150/work
-charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
-constantly==15.1.0
-cryptography @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_19cvzxmeb9/croot/cryptography_1677533085498/work
-cssselect==1.2.0
-Django==4.2.2 
-filelock==3.12.1
+Django==4.2.2
 firebase-admin==6.2.0
 google-api-core==2.11.1
 google-api-python-client==2.90.0
@@ -24,50 +11,12 @@ google-cloud-storage==2.9.0
 google-crc32c==1.5.0
 google-resumable-media==2.5.0
 googleapis-common-protos==1.59.1
-grpcio==1.56.0
-grpcio-status==1.56.0
-httplib2==0.22.0
-hyperlink==21.0.0
-idna==3.4
-incremental==22.10.0
-itemadapter==0.8.0
-itemloaders==1.1.0
-jmespath==1.0.1
-lxml==4.9.2
-msgpack==1.0.5
-packaging==23.1
-parsel==1.8.1
-Protego==0.2.1
-proto-plus==1.22.3
-protobuf==4.23.3
-pyasn1==0.5.0
-pyasn1-modules==0.3.0
-pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
-PyDispatcher==2.0.7
-PyJWT==2.7.0
-pyOpenSSL @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_6dweji2whw/croot/pyopenssl_1677607689781/work
-pyparsing==3.1.0
-PySocks @ file:///Users/builder/ci_310/pysocks_1642536366386/work
-queuelib==1.6.2
-requests @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_ec2sxfa_zk/croot/requests_1682607519671/work
 requests-file==1.5.1
 rsa==4.9
 scrapeops-scrapy-proxy-sdk==1.0
 Scrapy==2.9.0
 scrapy-rotating-proxies==0.6.2
 scrapy-user-agents==0.1.1
-service-identity==21.1.0
-six==1.16.0
-soupsieve==2.4.1
-sqlparse==0.4.4
-tldextract==3.4.4
 Twisted==22.10.0
-typing==3.7.4.3
-typing_extensions==4.6.3
-ua-parser==0.16.1
-uritemplate==4.1.1
-urllib3 @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_1968zekhce/croot/urllib3_1686163172153/work
-user-agents==2.2.0
-w3lib==2.1.1
 whitenoise==6.5.0
-zope.interface==6.0
+
