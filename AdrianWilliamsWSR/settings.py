@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ltfx8%yp=-kc#c2o@e0eocnk1!*8#ro1v)p4cr57dp6mnm*&+@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['aw-wsr.azurewebsites.net']
+ALLOWED_HOSTS = ['aw-wsr.azurewebsites.net', '127.0.0.1']
 
 
 # Application definition
@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -45,6 +44,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
