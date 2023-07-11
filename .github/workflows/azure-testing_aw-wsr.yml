@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'aw-wsr'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CB8A08D43DC94D8588451A5395C59C71 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_692A0C898F0B494DA34F10EA85336321 }}
