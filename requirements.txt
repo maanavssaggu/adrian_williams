@@ -13,6 +13,7 @@ google-resumable-media==2.5.0
 googleapis-common-protos==1.59.1
 requests-file==1.5.1
 rsa==4.9
+typing
 scrapeops-scrapy-proxy-sdk==1.0
 Scrapy==2.9.0
 scrapy-rotating-proxies==0.6.2
