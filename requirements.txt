@@ -20,5 +20,4 @@ scrapy-user-agents==0.1.1
 Twisted==22.10.0
 whitenoise==6.5.0
 cython==0.29.36
-twisted-iocpsupport==1.0.3
 setuptools==68.0.0
