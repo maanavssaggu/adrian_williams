@@ -42,17 +42,3 @@ def scrape_listings(suburb_list: List[str], time_period: str) -> List[Property]:
     # Get the result from the queue
     out = q.get()
     return out
-
-    
-    
-
-if __name__ == "__main__":
-    suburb_list_test = ["camperdown-nsw-2050"]
-    time_period_test = "1-year"
-
-    all_properties = scrape_listings(suburb_list_test, time_period_test)
-
-    print(len(all_properties))
-
-    for prop in all_properties:
-        print(prop)
