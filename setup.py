@@ -18,6 +18,5 @@ setup(
     description='Weekly Service Report App',
     author='Adrian William',
     install_requires=requirements,
-    packages=['adrian-william-wsr'],
 )
 
