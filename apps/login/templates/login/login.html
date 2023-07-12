@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'login/main.css' %}">
+    <title>Adrian William - WSR</title>
+</head>
+<body>
+    <div class="website-header">
+        <img src="{% static 'login/adrian-william-logo.png' %}" alt="logo" class="logo">
+        <h1>Adrian William</h1>
+        <h2>Weekly Service Report Check</h2>
+    </div>
+
+    <form class="login">
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button>Login</button>
+    </form>
+</body>
+</html>
