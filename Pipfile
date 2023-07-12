@@ -1,0 +1,32 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+beautifulsoup4 = "==4.12.2"
+django = "==4.2.2"
+firebase-admin = "==6.2.0"
+google-api-core = "==2.11.1"
+google-api-python-client = "==2.90.0"
+google-auth = "==2.20.0"
+google-auth-httplib2 = "==0.1.0"
+google-cloud-core = "==2.3.2"
+google-cloud-firestore = "==2.11.1"
+google-cloud-storage = "==2.9.0"
+google-crc32c = "==1.5.0"
+google-resumable-media = "==2.5.0"
+googleapis-common-protos = "==1.59.1"
+requests-file = "==1.5.1"
+rsa = "==4.9"
+scrapeops-scrapy-proxy-sdk = "==1.0"
+scrapy = "==2.9.0"
+scrapy-rotating-proxies = "==0.6.2"
+scrapy-user-agents = "==0.1.1"
+twisted = "==22.10.0"
+whitenoise = "==6.5.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
