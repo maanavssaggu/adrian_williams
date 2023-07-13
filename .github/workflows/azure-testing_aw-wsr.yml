@@ -31,11 +31,13 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: uninstalling typing 
+        run: |
           pip uninstall typing --yes
       
       - name: check dependencies
         run: |
-          pip install -freeze
           pipdeptree
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
