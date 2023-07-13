@@ -33,6 +33,8 @@ jobs:
           pip install -r requirements.txt
           pip uninstall typing --yes
           pip install list 
+          pip install --freeze
+          pipdeptree
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
