@@ -16,7 +16,6 @@ rsa==4.9
 pipdeptree==2.9.5
 scrapeops-scrapy-proxy-sdk==1.0
 Scrapy==2.9.0
-scrapy-rotating-proxies==0.6.2
 scrapy-user-agents==0.1.1
 Twisted==22.10.0
 whitenoise==6.5.0
