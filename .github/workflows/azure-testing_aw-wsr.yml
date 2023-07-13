@@ -35,7 +35,7 @@ jobs:
       
       - name: check dependencies
         run: |
-          pip install --freeze
+          pip install -freeze
           pipdeptree
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
