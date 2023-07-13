@@ -29,8 +29,9 @@ jobs:
       
       - name: Install dependencies
         run: |
+          pip install --upgrade pip
           pip install -r requirements.txt
-          pip uninstall typing
+          pip uninstall typing --yes
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
