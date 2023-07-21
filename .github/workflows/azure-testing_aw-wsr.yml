@@ -7,7 +7,7 @@ name: Build and deploy Python app to Azure Web App - aw-wsr
 on:
   push:
     branches:
-      - azure-testing
+      - main
   workflow_dispatch:
 
 jobs:
