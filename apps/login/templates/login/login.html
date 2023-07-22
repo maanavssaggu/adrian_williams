@@ -12,10 +12,15 @@
         <h2>Weekly Service Report Check</h2>
     </div>
 
-    <form class="login">
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <button>Login</button>
+    <form action="/verify_user/" method="POST" class="login">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" value="Submit">Login</button>
+        
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+
     </form>
 </body>
 </html>

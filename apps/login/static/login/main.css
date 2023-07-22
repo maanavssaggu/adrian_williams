@@ -37,6 +37,12 @@ input {
 }
 
 
+.error-message {
+    margin-top: 50px;
+    color: red;
+    font-size: 30px;
+}
+
 button {
     background-color: #4CAF50;
     color: #fff;

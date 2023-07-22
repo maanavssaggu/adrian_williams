@@ -24,16 +24,7 @@ class Auth:
                 }
             )
 
-        self.firebase_credentials = {
-            'apiKey': "AIzaSyAjbnS3xKUB0HryMJCrZiLithqhu0b87II",
-            'authDomain': "aw-wsr.firebaseapp.com",
-            'databaseURL': "https://aw-wsr-default-rtdb.firebaseio.com",
-            'projectId': "aw-wsr",
-            'storageBucket': "aw-wsr.appspot.com",
-            'messagingSenderId': "809098752709",
-            'appId': "1:809098752709:web:29cfaac34630e79ebc36ac",
-            'measurementId': "G-13T3539Y54"
-        }
+        self.api_key = "AIzaSyAjbnS3xKUB0HryMJCrZiLithqhu0b87II"
 
     def create_firebase_user(self, email, password) -> bool:
         '''
@@ -50,25 +41,20 @@ class Auth:
             print(f'Error creating user: {e}')
             return False
 
-    def sign_in_with_email_and_password(self, email, password) -> bool:
+    def authenticate_user_with_email_and_password(self, email, password) -> bool:
         '''
         Verifies if a user is an authorised user
         '''
         # Creates URL request to send to public Google API
-        request_ref = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key={0}".format(self.firebase_credentials['apiKey'])
+        request_ref = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key={0}".format(self.api_key)
         headers = {"content-type": "application/json; charset=UTF-8"}
         data = json.dumps({"email": email, "password": password, "returnSecureToken": True})
 
         # Run the request
-        request_object = requests.post(request_ref, headers=headers, data=data).json()
+        response_obj = requests.post(request_ref, headers=headers, data=data).json()
 
         # If the response echos the email, then it was valid, otherwise it was not
-        if 'email' in request_object:
+        if 'email' in response_obj:
             return True
         
-        return False
-
-        
-
-
-        
+        return False  
