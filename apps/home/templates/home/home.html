@@ -7,7 +7,8 @@
 </head>
 <body>
     <h1>Adrian William - Weekly Service Report</h1>
-    <form class="search-bar">
+    <form action="/home/scrape_listings_req/" method="POST" class="search-bar">
+        {% csrf_token %}
         <input type="text" placeholder="Select Suburbs">
         <button>Generate Report</button>
     </form>

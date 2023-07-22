@@ -1,7 +1,7 @@
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from spiders.domain_scraper import DomainScraperSpider
-from spiders.property import Property
+from .spiders.domain_scraper import DomainScraperSpider
+from .spiders.property import Property
 from typing import List
 from multiprocessing import Process, Queue
 
