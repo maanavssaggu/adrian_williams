@@ -1,7 +1,8 @@
-from asyncio import exceptions
-from firebase_admin import auth, exceptions, credentials
+from firebase_admin import auth, credentials
 import firebase_admin
-import os 
+import os
+import requests
+import json
 
 class Auth:
     """
@@ -23,6 +24,17 @@ class Auth:
                 }
             )
 
+        self.firebase_credentials = {
+            'apiKey': "AIzaSyAjbnS3xKUB0HryMJCrZiLithqhu0b87II",
+            'authDomain': "aw-wsr.firebaseapp.com",
+            'databaseURL': "https://aw-wsr-default-rtdb.firebaseio.com",
+            'projectId': "aw-wsr",
+            'storageBucket': "aw-wsr.appspot.com",
+            'messagingSenderId': "809098752709",
+            'appId': "1:809098752709:web:29cfaac34630e79ebc36ac",
+            'measurementId': "G-13T3539Y54"
+        }
+
     def create_firebase_user(self, email, password) -> bool:
         '''
         Creates a firebase user with the given email and password
@@ -38,30 +50,23 @@ class Auth:
             print(f'Error creating user: {e}')
             return False
 
-    def verify_firebase_user(self, email, password) -> bool:
+    def sign_in_with_email_and_password(self, email, password) -> bool:
         '''
-        Verify a firebase user with the given email and password
-        is a valid user
+        Verifies if a user is an authorised user
         '''
-    
-    def user_exists(self, email):
+        # Creates URL request to send to public Google API
+        request_ref = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key={0}".format(self.firebase_credentials['apiKey'])
+        headers = {"content-type": "application/json; charset=UTF-8"}
+        data = json.dumps({"email": email, "password": password, "returnSecureToken": True})
 
-        """
-        call this with the email you wanna check exists and it will return true if they 
-        exist and false if they do not 
-        """
-        try:
-            user = auth.get_user_by_email(email)
+        # Run the request
+        request_object = requests.post(request_ref, headers=headers, data=data).json()
+
+        # If the response echos the email, then it was valid, otherwise it was not
+        if 'email' in request_object:
             return True
-        except auth.UserNotFoundError as user_not_found:
-            print(f'user not found: {user_not_found}')
-            return False
-        except exceptions.FirebaseError as e:
-            raise
-
-
-myobj = Auth()
-myobj.create_firebase_user('akshattest@gmail.com', 'password')
+        
+        return False
 
         
 
