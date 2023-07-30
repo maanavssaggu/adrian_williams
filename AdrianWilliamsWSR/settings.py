@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os 
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ltfx8%yp=-kc#c2o@e0eocnk1!*8#ro1v)p4cr57dp6mnm*&+@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['adrian-william-wsr.azurewebsites.net']
+ALLOWED_HOSTS = ['aw-wsr.azurewebsites.net', '127.0.0.1']
 
 
 # Application definition
@@ -127,3 +127,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Authentication Flags
+LOGGED_IN = False
+ENTERED_INCORRECT_CREDENTIALS = False

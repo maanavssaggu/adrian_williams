@@ -3,13 +3,39 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'home/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/chosen.min.css' %}">
     <title>Adrian William - WSR</title>
 </head>
 <body>
     <h1>Adrian William - Weekly Service Report</h1>
-    <form class="search-bar">
-        <input type="text" placeholder="Select Suburbs">
-        <button>Generate Report</button>
-    </form>
+        <div class="seach-form">
+            <form action="/home/scrape_listings_req/" method="post">
+                {% csrf_token %}
+                <select data-placeholder="Begin typing a suburb to search..." multiple class="chosen-select" name="suburbs">
+                    <option>CAMPERDOWN-NSW-2050</option>
+                    <option>DAMPERDOWN-NSW-2050</option>
+                    <option>FAMPERDOWN-NSW-2050</option>
+                    <option>GAMPERDOWN-NSW-2050</option>
+                    <option>QAMPERDOWN-NSW-2050</option>
+                    <option>PAMPERDOWN-NSW-2050</option>
+                    <option>LAMPERDOWN-NSW-2050</option>
+                    <option>NAMPERDOWN-NSW-2050</option>
+                </select>
+                <input type="submit">
+            </form>
+        </div>
+        
+        {% if properties %}
+            {% for property in properties %}
+                <li>{{property.address_line_1}} {{property.address_line_2}}</li>
+            {% endfor %}
+        {% endif %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+        <script>
+            $(".chosen-select").chosen({
+                no_results_text: "No suburb found with name: "
+            })
+        </script>
 </body>
 </html>
