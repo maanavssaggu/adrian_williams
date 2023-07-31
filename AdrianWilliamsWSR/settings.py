@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['aw-wsr.azurewebsites.net', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = ['aw-wsr.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = ['https://aw-wsr.azurewebsites.net']
 
 
 # Application definition
