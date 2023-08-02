@@ -135,7 +135,7 @@ class DomainScraperSpider(Spider):
 
         # If property is found
         if ((high - low) <= 1e5):
-            curr_property.price = (low + high) / 2
+            curr_property.set_price(int((low + high) / 2))
             self.all_properties.append(curr_property)
             return
 

@@ -25,11 +25,34 @@
             </form>
         </div>
         
-        {% if properties %}
-            {% for property in properties %}
-                <li>{{property.address_line_1}} {{property.address_line_2}}</li>
-            {% endfor %}
-        {% endif %}
+        <div class="property-results">
+            {% if properties %}
+            * = Approximate Price
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property ID</th>
+                        <th>Address</th>
+                        <th>Price</th>
+                        <th>Date Sold</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for property in properties %}
+                        <tr>
+                            <td>{{ property.property_id }}</td>
+                            <td>{{ property.address_line_1 }} {{ property.address_line_2 }} </td>
+                            <td> ${{ property.price_string }}{% if property.approx_price %}*{% endif %}</td>
+                            <td>{{ property.sold_status_date }}</td>
+                            <td><a href="{{ property.property_url }}">{{ property.property_url }}</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
         <script>
