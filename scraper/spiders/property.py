@@ -1,4 +1,7 @@
 from typing import List
+import re
+from datetime import datetime
+
 
 class Property:
     '''
@@ -20,6 +23,7 @@ class Property:
             
         self.set_price(self.price)
         self.sold_status_date = sold_status_date
+        self.set_date_string()
         self.property_url = property_url
         self.property_id = property_id
         
@@ -29,12 +33,15 @@ class Property:
     '''
 
     def propertery_to_dict(self):
-        data = {'property_id': self.property_id,
-                'price': self.price,
-                'adress_line1': self.address_line_1,
-                'address_line2': self.address_line_2,
-                'property_url': self.property_url,
-                'sold_date': self.sold_status_date
+        data = {
+            'property_id': self.property_id,
+            'price': self.price,
+            'adress_line1': self.address_line_1,
+            'address_line2': self.address_line_2,
+            'property_url': self.property_url,
+            'sold_date': self.sold_status_date,
+            'date_str': self.date_str,
+            'price_string': self.price_string
         }
 
         return data
@@ -56,6 +63,17 @@ class Property:
 
             self.price_string = result_string
 
+    def set_date_string(self):
+        # Use regular expression to find the date part in the string
+        date_str = re.search(r'\d+\s\w+\s\d{4}', self.sold_status_date).group()
+
+        # Parse the extracted date string into a datetime object
+        date_obj = datetime.strptime(date_str, "%d %b %Y")
+
+        # Convert the datetime object to the desired format
+        new_date_str = date_obj.strftime("%Y%m%d")
+
+        self.date_str = new_date_str
     
     def __str__(self):
         return f'{{"address_line_1": "{self.address_line_1}", "address_line_2": {self.address_line_2}, "price": {self.price}, "sold_status_date": "{self.sold_status_date}", "property_url": "{self.property_url}", "property_id": "{self.property_id}"}}'
