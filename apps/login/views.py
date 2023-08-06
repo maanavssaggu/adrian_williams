@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from firebase_integration.Auth import Auth
+from scraper.Auth import Auth
 from django import forms
 from django.conf import settings
 

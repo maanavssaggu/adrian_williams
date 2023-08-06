@@ -11,6 +11,7 @@ def home(request):
 
     return render(request, "home/home.html")
 
+#TODO Akshat
 def scrape_listings_req(request):
     suburb_list = dict(request.POST)
     if ("suburbs" not in suburb_list):
@@ -21,7 +22,7 @@ def scrape_listings_req(request):
     if (len(suburb_list) == 0):
         return redirect("/home/")
 
-    scraped_properties = scrape_listings(suburb_list, "1y")
+    scraped_properties = scrape_listings(suburb_list, "20230715")
 
     context = {}
     context['properties'] = scraped_properties
