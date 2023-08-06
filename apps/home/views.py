@@ -6,12 +6,12 @@ from scraper.main import scrape_listings
 
 # Create your views here.
 def home(request):
-    # TODO uncomment this when login is implemented
-    # if (settings.LOGGED_IN == False):
-    #     return redirect("/")
+    if (settings.LOGGED_IN == False):
+        return redirect("/")
 
     return render(request, "home/home.html")
 
+#TODO Akshat
 def scrape_listings_req(request):
     suburb_list = dict(request.POST)
     if ("suburbs" not in suburb_list):

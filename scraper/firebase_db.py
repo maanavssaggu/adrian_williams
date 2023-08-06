@@ -22,7 +22,7 @@ class FireBaseDB:
             )
         self.db = firestore.client()
 
-    
+    # TODO FOR MAANAV
     def upload(self, properties: List[Property]) -> None:
         """
             Given a list of properties, uploads them to the firebase database
@@ -31,6 +31,7 @@ class FireBaseDB:
             doc_ref = self.db.collection(property.date_str).document(property.address_line_2).collection("properties").document(property.property_id)
             doc_ref.set(property.propertery_to_dict())
 
+    # TODO FOR MAANAV
     def get_properties(self, start_date: str, end_date: str, suburbs: List[str]) -> List[Property]:
         '''
             Given a date range and suburn list, returns a list of sold properties
@@ -45,7 +46,7 @@ class FireBaseDB:
                     temp_prop.dict_to_property(doc.to_dict())
                     properties.append(temp_prop)
             
-            start_date = 999999999
+            start_date = 999999999 # TODO need to change to increment
             
         return properties
 
