@@ -45,6 +45,16 @@ class Property:
         }
 
         return data
+
+    def dict_to_property(self, data):
+        self.property_id = data['property_id']
+        self.price = data['price']
+        self.address_line_1 = data['adress_line1']
+        self.address_line_2 = data['address_line2']
+        self.property_url = data['property_url']
+        self.sold_status_date = data['sold_date']
+        self.date_str = data['date_str']
+        self.price_string = data['price_string']
     
     def set_price(self, price):
         self.price = price

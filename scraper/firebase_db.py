@@ -22,11 +22,36 @@ class FireBaseDB:
             )
         self.db = firestore.client()
 
-    #upload data to firebase by property id
+    
     def upload(self, properties: List[Property]) -> None:
         """
-        input: A list of property objects
+            Given a list of properties, uploads them to the firebase database
         """
         for property in properties:
             doc_ref = self.db.collection(property.date_str).document(property.address_line_2).collection("properties").document(property.property_id)
             doc_ref.set(property.propertery_to_dict())
+
+    def get_properties(self, start_date: str, end_date: str, suburbs: List[str]) -> List[Property]:
+        '''
+            Given a date range and suburn list, returns a list of sold properties
+        '''
+        properties = []
+        while(self.is_end_after_start(start_date, end_date)):
+            for suburb in suburbs:
+                doc_ref = self.db.collection(start_date).document(suburb).collection("properties")
+                docs = doc_ref.stream()
+                for doc in docs:
+                    temp_prop = Property("", [], "0", "1 Jan 2023", "", "")
+                    temp_prop.dict_to_property(doc.to_dict())
+                    properties.append(temp_prop)
+            
+            start_date = 999999999
+            
+        return properties
+
+    
+    def is_end_after_start(self, start_date: str, end_date: str) -> bool:
+        '''
+            Checks if the end date is after the start date, assuming YYYYMMDD format
+        '''
+        return int(end_date) >= int(start_date)
