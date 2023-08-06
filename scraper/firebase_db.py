@@ -5,6 +5,7 @@ from firebase_admin import firestore
 from spiders.property import Property
 from typing import List
 
+
 class FireBaseDB:
     def __init__(self):
         # get paths to initilise firebase
