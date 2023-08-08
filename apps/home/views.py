@@ -27,7 +27,8 @@ def scrape_listings_req(request):
     scraped_properties = fb_db.get_properties("20230701", "20230804", suburb_list)
     print(f'scraped properties: {scraped_properties}')
     context = {}
-    if scraped_properties == None:
+    if scraped_properties == None or scraped_properties == []:
+        print('i am here')
         context['no_properties_found'] = True
     else:
         context['properties'] = scraped_properties
