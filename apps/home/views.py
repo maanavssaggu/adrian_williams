@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.conf import settings
 from scraper.main import scrape_listings
-
+from scraper.firebase_db import FireBaseDB
 
 # Create your views here.
 def home(request):
@@ -22,9 +22,17 @@ def scrape_listings_req(request):
     if (len(suburb_list) == 0):
         return redirect("/home/")
 
-    scraped_properties = scrape_listings(suburb_list, "20230715")
-
+    #scraped_properties = scrape_listings(suburb_list, "20230715")
+    fb_db = FireBaseDB()
+    scraped_properties = fb_db.get_properties("20230701", "20230804", suburb_list)
+    print(f'scraped properties: {scraped_properties}')
     context = {}
-    context['properties'] = scraped_properties
+    if scraped_properties == None:
+        context['no_properties_found'] = True
+    else:
+        context['properties'] = scraped_properties
+
+    
+    
 
     return render(request, "home/home.html", context)

@@ -88,30 +88,34 @@
         </div>
         
         <div class="property-results">
-            {% if properties %}
-            * = Approximate Price
-            <table>
-                <thead>
-                    <tr>
-                        <th>Property ID</th>
-                        <th>Address</th>
-                        <th>Price</th>
-                        <th>Date Sold</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for property in properties %}
-                        <tr>
-                            <td>{{ property.property_id }}</td>
-                            <td>{{ property.address_line_1 }} {{ property.address_line_2 }} </td>
-                            <td> ${{ property.price_string }}{% if property.approx_price %}*{% endif %}</td>
-                            <td>{{ property.sold_status_date }}</td>
-                            <td><a href="{{ property.property_url }}">{{ property.property_url }}</a></td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            {% if no_properties_found %}
+                <p>No properties found matching this criteria.</p>
+            {% else %}
+                {% if properties %}
+                    * = Approximate Price
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Property ID</th>
+                                <th>Address</th>
+                                <th>Price</th>
+                                <th>Date Sold</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for property in properties %}
+                                <tr>
+                                    <td>{{ property.property_id }}</td>
+                                    <td>{{ property.address_line_1 }} {{ property.address_line_2 }} </td>
+                                    <td> ${{ property.price_string }}{% if property.approx_price %}*{% endif %}</td>
+                                    <td>{{ property.sold_status_date }}</td>
+                                    <td><a href="{{ property.property_url }}">{{ property.property_url }}</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
             {% endif %}
         </div>
 

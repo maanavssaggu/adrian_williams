@@ -32,7 +32,7 @@ class Property:
     Turn data into a dictionary to pass to fire_base
     '''
 
-    def propertery_to_dict(self):
+    def property_to_dict(self):
         data = {
             'property_id': self.property_id,
             'price': self.price,
@@ -41,6 +41,7 @@ class Property:
             'property_url': self.property_url,
             'sold_date': self.sold_status_date,
             'date_str': self.date_str,
+            'date': int(self.date_str),
             'price_string': self.price_string
         }
 

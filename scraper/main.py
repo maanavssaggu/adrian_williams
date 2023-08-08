@@ -26,10 +26,13 @@ def _scrape_listings(suburb_list: List[str], time_period: str, return_queue) -> 
     return_queue.put(property_results)
 
 
+
 def scrape_listings(suburb_list: List[str], time_period: str) -> List[Property]:
     """
         Wrapper function for the scrape_listings function, this function is used to catch any errors
         that occur during the scraping process and return an empty list if any errors occur
+
+        returns list of Property objects
     """
     # Initialise queue to return the result
     q = Queue()
