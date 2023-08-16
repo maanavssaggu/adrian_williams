@@ -26,6 +26,7 @@ class DomainScraperSpider(Spider):
         for suburb in self.suburb_list:
             starting_page_number = 1
             domain_dot_com_URL = f"https://www.domain.com.au/sold-listings/{suburb}/?sort=solddate-desc&page={starting_page_number}"
+            print(f"scraping domain: {domain_dot_com_URL}")
             yield Request(
                 url=domain_dot_com_URL,
                 callback=self.parse_search_results,
