@@ -97,11 +97,13 @@ if __name__ == "__main__":
     last_monday =last_monday()
     print(last_monday)
 
+    lastmonday = "20230801"
+
     for suburb in suburb_list:
         print()
         print(f"scraping: {suburb} right now")
         print("---------------------------------\n")
-        data = scrape_listings(['ALEXANDRIA-NSW-2015'], last_monday)
+        data = scrape_listings(suburb, last_monday)
         fb_db.upload(data)
 
         print()
