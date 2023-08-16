@@ -18,4 +18,5 @@ scrapeops-scrapy-proxy-sdk==1.0
 Scrapy==2.9.0
 scrapy-user-agents==0.1.1
 Twisted==22.10.0
+gunicorn==20.1.0
 whitenoise==6.5.0
