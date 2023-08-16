@@ -1,6 +1,6 @@
 import sys 
-sys.path.append("/Users/sickkent/Documents/aw-wsr/adrian_williams/scraper/spiders/")
-print(sys.path)
+#sys.path.append("/Users/sickkent/Documents/aw-wsr/adrian_williams/scraper/spiders/")
+#print(sys.path)
 
 from scraper.firebase_db import FireBaseDB
 from scraper.spiders.property import Property
