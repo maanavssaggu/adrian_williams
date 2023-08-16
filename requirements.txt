@@ -19,5 +19,5 @@ Scrapy==2.9.0
 scrapy-user-agents==0.1.1
 Twisted==22.10.0
 whitenoise==6.5.0
-schedule=1.20
+schedule==1.20
 
