@@ -24,7 +24,11 @@ def scrape_listings_req(request):
 
     #scraped_properties = scrape_listings(suburb_list, "20230715")
     fb_db = FireBaseDB()
+    # scraped_properties = scrape_listings(suburb_list, "20230715")
+    # fb_db.upload(scraped_properties)
+
     scraped_properties = fb_db.get_properties("20230701", "20230804", suburb_list)
+
     print(f'scraped properties: {scraped_properties}')
     context = {}
     if scraped_properties == None or scraped_properties == []:
@@ -32,8 +36,5 @@ def scrape_listings_req(request):
         context['no_properties_found'] = True
     else:
         context['properties'] = scraped_properties
-
-    
-    
 
     return render(request, "home/home.html", context)
