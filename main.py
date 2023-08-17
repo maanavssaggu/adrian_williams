@@ -5,6 +5,8 @@ import sys
 from scraper.firebase_db import FireBaseDB
 from scraper.spiders.property import Property
 from scraper.main import scrape_listings
+from apscheduler.schedulers.blocking import BlockingScheduler
+
 
 fb_db = FireBaseDB()
 
@@ -91,19 +93,17 @@ def last_monday():
 
 print(last_monday())  # Output: date of last Monday in YYYYMMDD format
 
+def run_scraper():
+    last_monday = last_monday()
+    for suburb in suburb_list:
+        print(f"scraping: {suburb} right now")
+        data = scrape_listings([suburb], last_monday)
+        fb_db.upload(data)
+        print(f"\n. finished scraping: {suburb} and uploaded it to Firebase. It had {len(data)} properties")
+
 
 if __name__ == "__main__":
 
-    last_monday =last_monday()
-
-    for suburb in suburb_list:
-        print()
-        print(f"scraping: {suburb} right now")
-        print("---------------------------------\n")
-        data = scrape_listings([suburb], last_monday)
-        fb_db.upload(data)
-
-        print()
-        print(f"\n. finished scraping: {suburb} and uploaded it firebase it had {len(data)} properties")
-        print("---------------------------------\n")
-    
+    scheduler = BlockingScheduler()
+    scheduler.add_job(run_scraper, 'cron', hour=21, minute=33)
+    scheduler.start()
