@@ -73,14 +73,6 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_692A0C898F0B494DA34F10EA85336321 }}
 
-      - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
-        with:
-          app-name: 'aw-wsr'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_692A0C898F0B494DA34F10EA85336321 }}
-
       - name: 'Print Debug Information if Deployment Fails'
         if: failure() # This will run only if the previous step fails
         run: |
