@@ -79,6 +79,9 @@ suburb_list =[
  'WESTGATE-NSW-2048'
 ]
 
+def today_date():
+    today = datetime.today()
+    return today.strftime("%Y%m%d")
 
 def last_monday():
     today = datetime.today()

@@ -87,7 +87,12 @@
             </form>
         </div>
 
-        <a href="/home/scrape_listings_req/" target="_blank">Download PDF Report</a>
+        <form action="/home/generate_pdf_request/" method="post" target="_blank">
+            {% csrf_token %}
+            <input type="hidden" name="generate_pdf" value="true">
+            <input type="submit" value="Download PDF Report">
+        </form>
+        
         
         <div class="property-results">
             {% if no_properties_found %}
