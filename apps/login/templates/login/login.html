@@ -14,12 +14,15 @@
 
     <form action="/verify_user/" method="POST" class="login">
         {% csrf_token %}
-        {{ form.as_p }}
+        {% for field in form %}
+            {{ field }}  <!-- This will render only the input field -->
+        {% endfor %}
         <button type="submit" value="Submit">Login</button>
         
         {% if error %}
             <p class="error-message">{{ error }}</p>
         {% endif %}
     </form>
+
 </body>
 </html>

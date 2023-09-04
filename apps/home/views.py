@@ -87,7 +87,7 @@ def scrape_listings_req(request):
     print("last monday", last_monday_date)
     print("today", today)
 
-    scraped_properties = fb_db.get_properties(last_monday_date, today, suburb_list)
+    scraped_properties = fb_db.get_properties("20230823", today, suburb_list)
     request.session['scraped_properties'] = scraped_properties 
 
     print(f'scraped properties: {scraped_properties}')

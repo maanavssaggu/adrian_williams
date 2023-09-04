@@ -6,18 +6,21 @@
 
 h1 {
     /* Just as an example of how css can be added to templates */
-    padding-top: 20px;
-    font-family: "maison-neue";
-    font-weight: 100;
-    font-size: 60px;
-    text-align: center;
-}
 
-h2 {
-    font-family: "maison-neue";
+    font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 30px;
     text-align: center;
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 0px;
 }
 
 
@@ -25,16 +28,6 @@ h2 {
     justify-content: center;
 }
 
-input {
-    padding: 10px;
-    font-size: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    width: 600px;
-    height: 40px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
 
 
 .error-message {
@@ -52,7 +45,7 @@ button {
     cursor: pointer;
     border-radius: 5px;
     width: 200px;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 img {
@@ -60,14 +53,29 @@ img {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    margin-top: 50px;
+    margin-top: 30px;
+    width: 100px; /* Add this line to set the width */
+    height: 100px; /* Add this line to set the height */
 }
 
 .login {
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
-    margin-top: 50px;
     flex-direction: column;
     align-items: center;
+    padding: 20px; /* Some padding inside the form */
+    border-radius: 10px; /* Rounded corners */
+    max-width: 200px; /* Maximum width */
+    margin: auto; /* Centering the form */
 }
+
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px !important; /* Changed from 100px to 80px to make the input fields narrower */
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+

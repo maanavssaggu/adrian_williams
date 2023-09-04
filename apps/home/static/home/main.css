@@ -3,37 +3,54 @@
     color: aliceblue;
 }
 
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+
 
 h1 {
     /* Just as an example of how css can be added to templates */
-    padding-left: 50px;
-    padding-top: 20px;
-    font-family: "maison-neue";
+    padding-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
     font-weight: 100;
     font-size: 40px;
 }
 
 .search-bar {
-    padding-top: 50px;
+    padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
+/* 
 input {
-    padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    width: 500px;
+    width: 300px !important;
     height: 30px;
     margin-right: 10px;
+} */
+
+img {
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 30px;
+    width: 100px; /* Add this line to set the width */
+    height: 100px; /* Add this line to set the height */
 }
 
-
 button {
-    background-color: #4CAF50;
+  background-color: #4CAF50;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -42,18 +59,45 @@ button {
   border-radius: 5px;
 }
 
-.seach-form {
+.search-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
 }
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.chosen-select {
+    padding-right: 80px; /* Adjust as necessary to make space for the button */
+    border-radius: 5px 0 0 5px; /* To round the left corners only */
+}
+
+.submit-button {
+    position: absolute;
+    right: 10px; /* Adjust as necessary to position the button correctly */
+    top: 50%;
+    transform: translateY(-50%);
+    height: 30px; /* Adjust to match the height of the select box */
+    border-radius: 0 5px 5px 0; /* To round the right corners only */
+    color: #fff;
+    border: none;
+    padding: 5px 20px; /* Adjust padding to make button smaller */
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
 
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 span {
@@ -64,23 +108,18 @@ span {
 
 
 select {
-    width: 800px;
-    height: 200px;
-    border: aliceblue;
+    width: 500px; /* Adjust as per your preference */
+    height: 40px; /* Adjust as per your preference */
+    border: 1px solid #ccc; /* Adding a border for a better look */
+    border-radius: 5px; /* Adding a border-radius to match with buttons */
 }
 
-input {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 22px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 200px;
-    margin-top: 40px;
-    height: 50px;
+
+.form-section {
+    margin: 0 10px; /* Adds some space between sections */
 }
+
+
 
 .property-results {
     display: flex;
@@ -99,4 +138,70 @@ th, td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+}
+
+.website-header {
+    text-align: center;
+}
+
+.website-header img {
+    display: block;
+    margin: 0 auto;
+}
+
+.website-header h1 {
+    text-align: center;
+}
+
+.button-style {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px !important; /* Adjust as per your preference */
+    height: 50px; /* Adjust as per your preference */
+}
+
+
+.input-button-group button, .input-button-group input {
+    width: 150px;
+    height: 40px; /* Adjust to ensure consistency */
+    margin: 0 10px; /* Adjust margin to ensure consistency */
+    border-radius: 5px;
+    font-size: 16px;
+    align-items: center;
+    vertical-align: middle; /* Add this to vertically align elements */
+}
+
+.button-style {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px; /* Make sure this is 40px */
+}
+
+
+/* This will style your inputs and buttons uniformly */
+.input-button-group {
+    display: flex;
+    flex-direction: row; /* Keeps buttons in a row */
+    justify-content: space-evenly; /* Even spacing between the buttons */
+    align-items: center; /* Aligns items vertically in the center */
+}
+
+/* This will style your select */
+.input-button-group select {
+    width: 200px; /* Adjust to match the width of inputs/buttons */
+    height: 40px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    margin: 10px 0; /* Adds some space between select and other elements */
 }
